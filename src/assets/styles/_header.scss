@@ -1,0 +1,81 @@
+header {
+  background: $white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  .top_bar {
+    height: 32px;
+    width: 100%;
+    background: $main;
+    @include centerFlex();
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: $white;
+      font-size: 14px;
+      li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        &::after {
+          content: "•";
+        }
+        &:last-child {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  nav {
+    padding: 12px 0;
+    display: flex;
+    .logo {
+      flex: 1;
+      img {
+        height: 52px;
+        object-fit: contain;
+      }
+    }
+    .nav_links {
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 42px;
+      .nav_link {
+        color: $dark;
+        transition: $transition;
+        position: relative;
+        &::after {
+          position: absolute;
+          content: "";
+          height: 2px;
+          width: 0;
+          left: 50%;
+          bottom: -4px;
+          transform: translateX(-50%);
+          transition: $transition;
+          background: $main;
+        }
+        &.active,
+        &:hover {
+          color: $main;
+          &::after {
+            width: 100%;
+            right: 0;
+          }
+        }
+      }
+    }
+    .other_actions {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 32px;
+    }
+  }
+}

@@ -2,7 +2,11 @@
 body {
   position: relative;
   overflow-x: hidden;
-  direction: rtl;
+  font-family: "Poppins", sans-serif;
+
+  @import "./header";
+  @import "./home";
+
   main {
     min-height: calc(100vh - 426px);
     @media screen and (max-width: 992px) {
