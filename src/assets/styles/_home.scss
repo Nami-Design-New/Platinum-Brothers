@@ -1,5 +1,8 @@
 .hero_section {
   height: calc(100vh - 108px);
+  @media screen and (max-width: 576px) {
+    height: calc(100vh - 98px);
+  }
   .swiper,
   .swiper-wrapper,
   .swiper-slide {
@@ -22,6 +25,7 @@
       width: 100%;
       height: 100%;
       background: #00158937;
+      padding: 12px;
       .container {
         height: 100%;
         display: flex;
@@ -80,7 +84,7 @@
 }
 
 .about_section {
-  padding: 80px 0;
+  padding: 60px 0;
   .content {
     gap: 16px;
     height: 100%;
@@ -107,27 +111,53 @@
       top: -24px;
       right: -24px;
       border: 10px solid $inputBg;
+      @media screen and (max-width: 576px) {
+        top: -16px;
+        right: -16px;
+      }
     }
     img {
       width: 100%;
       z-index: 9;
     }
   }
-  .sector_card {
-    background: $white;
-    box-shadow: $shadow;
-    @include centerFlex();
-    gap: 16px;
+}
+
+.popular_service {
+  background: #fbfdfe;
+  padding: 60px 12px;
+  h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #001489;
+    margin-bottom: 48px;
+  }
+  .service {
+    width: 100%;
+    height: 100%;
+    display: flex;
     flex-direction: column;
     padding: 24px;
-    height: 100%;
-    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 0.091) 0px 1px 8px;
+    background: #fff;
+    border-radius: 8px;
+    gap: 12px;
+    transition: all 0.4s ease-in-out;
     h6 {
-      color: $main;
-      text-align: center;
+      color: #001489;
+      font-size: 16px;
+      margin: 12px 0 0;
+      font-weight: 700;
+    }
+    p {
+      font-size: 14px;
+      color: #777777;
+      margin: 0;
+      line-height: 24px;
     }
     img {
-      height: 62px;
+      height: 48px;
     }
   }
 }
@@ -139,4 +169,93 @@
   width: fit-content;
   color: $main;
   background: #daeeff;
+}
+
+.statistics_section {
+  min-height: 400px;
+  background-image: linear-gradient(#001589d9, #001589d9),
+    url("/images/workers.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  display: flex;
+  .content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    img {
+      height: 160px;
+    }
+    h2 {
+      color: $white;
+      font-size: 28px;
+      text-align: center;
+    }
+  }
+}
+
+.faqs_section {
+  padding: 60px 0;
+  h3 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #001489;
+    margin-bottom: 48px;
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .accordion-item {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 0;
+      backdrop-filter: blur(6px);
+      transition: $transition;
+      background: $white;
+      box-shadow: rgba(99, 99, 99, 0.074) 0px 2px 8px 0px;
+      &.active {
+        background: #e4367512;
+        button {
+          color: $white !important;
+        }
+        &::after {
+          color: $white !important;
+        }
+      }
+      .accordion-button {
+        box-shadow: none !important;
+        background: transparent !important;
+        color: $main !important;
+        gap: 12px;
+
+        &::after {
+          content: "\f00d";
+          font-family: "Font Awesome 6 Pro";
+          background: none;
+          @include centerFlex();
+          font-size: 16px;
+          font-weight: 400;
+          transform: rotate(135deg);
+          transform-origin: center;
+        }
+        &:not(.collapsed)::after {
+          transform: rotate(0deg);
+        }
+      }
+      .accordion-body {
+        background: transparent !important;
+        p {
+          color: #777 !important;
+          margin: 0;
+          line-height: 1.8;
+        }
+      }
+    }
+  }
 }

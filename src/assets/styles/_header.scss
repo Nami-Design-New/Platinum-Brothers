@@ -3,6 +3,9 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
+  &.sticky {
+    box-shadow: $shadow;
+  }
   .top_bar {
     height: 32px;
     width: 100%;
@@ -37,6 +40,9 @@ header {
       img {
         height: 52px;
         object-fit: contain;
+        @media screen and (max-width: 576px) {
+          height: 42px;
+        }
       }
     }
     .nav_links {
@@ -44,6 +50,7 @@ header {
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: $transition;
       gap: 42px;
       .nav_link {
         color: $dark;
@@ -68,6 +75,48 @@ header {
             right: 0;
           }
         }
+        &.logo {
+          height: fit-content;
+          display: none;
+          flex: unset;
+          margin-bottom: 52px;
+          @media screen and (max-width: 992px) {
+            display: flex;
+          }
+          &::after {
+            display: none;
+          }
+        }
+        &.login {
+          display: none;
+          &::after {
+            display: none;
+          }
+          @media screen and (max-width: 992px) {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+        }
+      }
+      @media screen and (max-width: 992px) {
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        background: $white;
+        left: -50%;
+        position: fixed;
+        flex-direction: column;
+        align-items: unset;
+        justify-content: unset;
+        padding: 48px 24px;
+        gap: 42px;
+        .nav_link {
+          width: fit-content;
+        }
+        &.open {
+          left: 0;
+        }
       }
     }
     .other_actions {
@@ -75,7 +124,23 @@ header {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 32px;
+      gap: 12px;
+      .customBtn {
+        @media screen and (max-width: 992px) {
+          display: none;
+        }
+      }
+
+      .toggler {
+        width: 42px;
+        height: 42px;
+        @include centerFlex();
+        display: none;
+        font-size: 18px;
+        @media screen and (max-width: 992px) {
+          display: flex;
+        }
+      }
     }
   }
 }
