@@ -6,6 +6,7 @@ body {
 
   @import "./header";
   @import "./home";
+  @import "./employers";
 
   main {
     min-height: calc(100vh - 426px);
@@ -242,7 +243,25 @@ footer {
     p {
       color: $white;
       margin: 0;
+      text-align: center;
       font-size: 14px;
     }
   }
 }
+
+.num {
+  text-wrap: nowrap;
+}
+
+.Page_header {
+  background-image: url("/images/hero.jpg");
+  height: 300px;
+  background-size: cover;
+  background-position: bottom;
+  h2 {
+    color: $white;
+    margin: auto 0;
+    font-size: 42px;
+  }
+}
+

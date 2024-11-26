@@ -670,9 +670,179 @@ body .positions {
   margin-top: 24px;
 }
 body .positions li {
-  border: 1px solid #777;
+  border: 1px solid #e5e5e5;
   padding: 8px 12px;
   border-radius: 100px;
+}
+body .positions li i {
+  color: #001489;
+}
+body .how_it_works {
+  padding: 60px 0;
+}
+body .how_it_works .content {
+  padding-inline-end: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body .how_it_works .content h1 {
+  font-size: 36px;
+  color: #001489;
+}
+@media screen and (max-width: 768px) {
+  body .how_it_works .content h1 {
+    font-size: 26px;
+  }
+}
+body .how_it_works .content p {
+  color: #333;
+}
+body .how_it_works .content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #333;
+}
+body .how_it_works .content ul i {
+  color: #001489;
+}
+body .whyus {
+  padding: 60px 0;
+  min-height: 400px;
+  background-image: linear-gradient(rgba(0, 21, 137, 0.8509803922), rgba(0, 21, 137, 0.8509803922)), url("/images/whyUs.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+}
+body .whyus h2 {
+  color: #fff;
+  text-align: center;
+  font-size: 48px;
+  margin: 0 auto;
+  margin-bottom: 62px;
+}
+@media screen and (max-width: 576px) {
+  body .whyus h2 {
+    font-size: 20px;
+  }
+}
+body .whyus h5 {
+  color: #99a2ca;
+  font-size: 32px;
+  text-align: center;
+}
+body .whyus ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body .whyus ul li {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  color: #fff;
+}
+body .how_we_do {
+  padding: 60px 0;
+}
+body .how_we_do .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: center;
+}
+body .how_we_do .content h2 {
+  color: #001489;
+}
+body .how_we_do .content p {
+  line-height: 2;
+  color: #333;
+}
+body .how_we_do .title {
+  color: #001489;
+  margin-top: 24px;
+  text-align: center;
+}
+body .how_we_do .subtitle {
+  text-align: center;
+  margin: 0 auto;
+  width: min(800px, 100%);
+}
+body .how_we_do .setps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 48px;
+}
+body .how_we_do .setps .step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px;
+  min-width: 200px;
+  gap: 18px;
+}
+@media screen and (max-width: 768px) {
+  body .how_we_do .setps .step {
+    max-width: 160px;
+    min-width: 160px;
+  }
+}
+body .how_we_do .setps .step .icon {
+  width: 180px;
+  height: 180px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1019607843);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  body .how_we_do .setps .step .icon {
+    width: 150px;
+    height: 150px;
+  }
+  body .how_we_do .setps .step .icon img {
+    height: 70px;
+  }
+}
+body .how_we_do .setps .step .icon::after {
+  content: "";
+  background: url("/images/line.svg");
+  position: absolute;
+  top: 50%;
+  height: 10px;
+  width: 100px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 96%;
+}
+@media screen and (max-width: 768px) {
+  body .how_we_do .setps .step .icon::after {
+    display: none;
+  }
+}
+body .how_we_do .setps .step h4 {
+  text-align: center;
+  font-size: 24px;
+  color: #001489;
+  margin: 0;
+}
+@media screen and (max-width: 768px) {
+  body .how_we_do .setps .step h4 {
+    font-size: 18px;
+  }
+}
+body .how_we_do .setps .step:last-child .icon::after {
+  display: none;
 }
 body main {
   min-height: calc(100vh - 426px);
@@ -907,5 +1077,22 @@ footer .copyRights {
 footer .copyRights p {
   color: #fff;
   margin: 0;
+  text-align: center;
   font-size: 14px;
+}
+
+.num {
+  text-wrap: nowrap;
+}
+
+.Page_header {
+  background-image: url("/images/hero.jpg");
+  height: 300px;
+  background-size: cover;
+  background-position: bottom;
+}
+.Page_header h2 {
+  color: #fff;
+  margin: auto 0;
+  font-size: 42px;
 }/*# sourceMappingURL=main.css.map */
