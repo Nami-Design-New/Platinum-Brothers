@@ -1,13 +1,15 @@
 import AboutSection from "../components/home/AboutSection";
 import Faqs from "../components/home/Faqs";
+import Features from "../components/home/Features";
 import HeroSection from "../components/home/HeroSection";
+import WhatWeDo from "../components/home/WhatWeDo";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <AboutSection />
-
+      <WhatWeDo />
       <section className="statistics_section">
         <div className="container">
           <div className="row h-100 justify-content-center">
@@ -25,7 +27,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <Features />
       <Faqs />
     </>
   );
