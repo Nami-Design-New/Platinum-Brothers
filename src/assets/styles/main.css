@@ -512,6 +512,8 @@ body .popular_service .service p {
   line-height: 24px;
 }
 body .popular_service .service img {
+  -o-object-fit: contain;
+     object-fit: contain;
   height: 48px;
 }
 body .section_hint {
