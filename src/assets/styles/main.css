@@ -283,10 +283,10 @@ body header nav .nav_links .nav_link {
 body header nav .nav_links .nav_link::after {
   position: absolute;
   content: "";
-  height: 2px;
+  height: 1px;
   width: 0;
   left: 50%;
-  bottom: -4px;
+  bottom: -3px;
   transform: translateX(-50%);
   transition: 0.3s ease-in-out;
   background: #001489;
@@ -368,6 +368,7 @@ body header nav .other_actions .toggler {
   justify-content: center;
   display: none;
   font-size: 18px;
+  color: #000;
 }
 @media screen and (max-width: 992px) {
   body header nav .other_actions .toggler {
@@ -873,6 +874,110 @@ body .parteners .content .customBtn {
   width: -moz-fit-content;
   width: fit-content;
 }
+body .contact_section {
+  padding: 60px 0;
+}
+body .contact_section h2 {
+  color: #001489;
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+body .contact_section .contact_text {
+  color: #333;
+  font-size: 18px;
+  line-height: 1.7;
+}
+body .contact_section .employeer_contact {
+  padding: 70px;
+  background-image: linear-gradient(rgba(0, 21, 137, 0.8509803922), rgba(0, 21, 137, 0.8509803922)), url("/images/contactemployer.jpg");
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 32px;
+}
+body .contact_section .employeer_contact h4 {
+  color: #fff;
+  font-size: 32px;
+}
+body .contact_section .employeer_contact p {
+  color: #fff;
+  font-size: 18px;
+}
+body .contact_section .employeer_contact button {
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 60px;
+}
+body .contact_form {
+  padding: 60px 0;
+  background: #f4f5f8;
+}
+body .contact_form h3 {
+  color: #001489;
+  font-size: 26px;
+  margin-bottom: 32px;
+}
+body .contact_form input,
+body .contact_form textarea {
+  background: #fff;
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  outline: none;
+  border: none;
+}
+body .contact_form textarea {
+  padding-top: 16px;
+  height: 180px;
+}
+body .contact_form button {
+  color: #fff;
+  background: #001489;
+  margin: 0 auto;
+  padding: 12px 42px;
+  border-radius: 80px;
+}
+body .offices {
+  padding: 60px 0;
+}
+body .offices h2 {
+  color: #001489;
+  margin-bottom: 32px;
+}
+body .offices .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px;
+  gap: 42px;
+  height: 100%;
+}
+body .offices .content h3 {
+  color: #001489;
+}
+body .offices .content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body .offices .content ul li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #333;
+}
+body .offices .content ul li i {
+  color: #001489;
+}
+body .offices .content ul li a {
+  color: #001489;
+}
 body main {
   min-height: calc(100vh - 426px);
 }
@@ -1115,7 +1220,6 @@ footer .copyRights p {
 }
 
 .Page_header {
-  background-image: url("/images/hero.jpg");
   height: 300px;
   background-size: cover;
   background-position: bottom;

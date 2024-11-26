@@ -8,7 +8,7 @@ import PageHeader from "../ui/layout/PageHeader";
 export default function Employers() {
   return (
     <>
-      <PageHeader title="Employers" />
+      <PageHeader title="Employers" image={"/images/hero.jpg"} />
       <HowItWorks />
       <Why />
       <HowWeDoIT />

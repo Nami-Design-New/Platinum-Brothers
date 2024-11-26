@@ -59,10 +59,10 @@ header {
         &::after {
           position: absolute;
           content: "";
-          height: 2px;
+          height: 1px;
           width: 0;
           left: 50%;
-          bottom: -4px;
+          bottom: -3px;
           transform: translateX(-50%);
           transition: $transition;
           background: $main;
@@ -137,6 +137,7 @@ header {
         @include centerFlex();
         display: none;
         font-size: 18px;
+        color: #000;
         @media screen and (max-width: 992px) {
           display: flex;
         }

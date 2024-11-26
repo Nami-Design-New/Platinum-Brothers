@@ -7,6 +7,7 @@ body {
   @import "./header";
   @import "./home";
   @import "./employers";
+  @import "./contact";
 
   main {
     min-height: calc(100vh - 426px);
@@ -254,7 +255,6 @@ footer {
 }
 
 .Page_header {
-  background-image: url("/images/hero.jpg");
   height: 300px;
   background-size: cover;
   background-position: bottom;
@@ -264,4 +264,3 @@ footer {
     font-size: 42px;
   }
 }
-

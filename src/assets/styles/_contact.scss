@@ -1,0 +1,107 @@
+.contact_section {
+  padding: 60px 0;
+  h2 {
+    color: $main;
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+  .contact_text {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  .employeer_contact {
+    padding: 70px;
+    background-image: linear-gradient(#001589d9, #001589d9),
+      url("/images/contactemployer.jpg");
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 32px;
+    h4 {
+      color: $white;
+      font-size: 32px;
+    }
+    p {
+      color: $white;
+      font-size: 18px;
+    }
+    button {
+      width: fit-content;
+      border: 1px solid $white;
+      color: $white;
+      padding: 12px 32px;
+      border-radius: 60px;
+    }
+  }
+}
+
+.contact_form {
+  padding: 60px 0;
+  background: #f4f5f8;
+  h3 {
+    color: $main;
+    font-size: 26px;
+    margin-bottom: 32px;
+  }
+  input,
+  textarea {
+    background: $white;
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+    outline: none;
+    border: none;
+  }
+  textarea {
+    padding-top: 16px;
+    height: 180px;
+  }
+
+  button {
+    color: $white;
+    background: $main;
+    margin: 0 auto;
+    padding: 12px 42px;
+    border-radius: 80px;
+  }
+}
+
+.offices {
+  padding: 60px 0;
+  h2 {
+    color: $main;
+    margin-bottom: 32px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12px;
+    gap: 42px;
+    height: 100%;
+    h3{
+        color: $main;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      li {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: #333;
+        i {
+          color: $main;
+        }
+        a{
+            color: $main;
+        }
+      }
+    }
+  }
+}
