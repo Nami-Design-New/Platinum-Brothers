@@ -712,9 +712,12 @@ body .whyus {
   min-height: 400px;
   background-image: linear-gradient(rgba(0, 21, 137, 0.8509803922), rgba(0, 21, 137, 0.8509803922)), url("/images/whyUs.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   display: flex;
+}
+body .whyus.methods {
+  background-image: linear-gradient(rgba(0, 21, 137, 0.8509803922), rgba(0, 21, 137, 0.8509803922)), url("/images/why3.jpg");
 }
 body .whyus h2 {
   color: #fff;
@@ -732,6 +735,11 @@ body .whyus h5 {
   color: #99a2ca;
   font-size: 32px;
   text-align: center;
+}
+body .whyus h6 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 62px;
 }
 body .whyus ul {
   display: flex;
@@ -843,6 +851,27 @@ body .how_we_do .setps .step h4 {
 }
 body .how_we_do .setps .step:last-child .icon::after {
   display: none;
+}
+body .how_we_do .center_t {
+  width: min(800px, 100%);
+  margin: 0 auto;
+}
+body .parteners {
+  padding: 60px 0;
+}
+body .parteners .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+body .parteners .content p {
+  text-align: center;
+  color: #333;
+}
+body .parteners .content .customBtn {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 body main {
   min-height: calc(100vh - 426px);

@@ -65,6 +65,14 @@ export default function HowWeDoIT() {
               </div>
             </div>
           </div>
+          <div className="col-12 p-2 mt-5">
+            <p className="text-center center_t">
+              Platinum Brothers International Manpower Agency Inc. works closely
+              with clients to understand and assess their specific needs. This
+              guides the recruitment process to make certain that expectations
+              are met.
+            </p>
+          </div>
         </div>
       </div>
     </section>

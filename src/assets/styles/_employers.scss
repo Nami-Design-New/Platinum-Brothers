@@ -33,9 +33,13 @@
   background-image: linear-gradient(#001589d9, #001589d9),
     url("/images/whyUs.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   display: flex;
+  &.methods {
+    background-image: linear-gradient(#001589d9, #001589d9),
+      url("/images/why3.jpg");
+  }
   h2 {
     color: $white;
     text-align: center;
@@ -50,6 +54,11 @@
     color: #99a2ca;
     font-size: 32px;
     text-align: center;
+  }
+  h6 {
+    color: $white;
+    text-align: center;
+    margin-bottom: 62px;
   }
   ul {
     display: flex;
@@ -152,6 +161,27 @@
       &:last-child .icon::after {
         display: none;
       }
+    }
+  }
+  .center_t {
+    width: min(800px, 100%);
+    margin: 0 auto;
+  }
+}
+
+.parteners {
+  padding: 60px 0;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    p {
+      text-align: center;
+      color: #333;
+    }
+    .customBtn {
+      width: fit-content;
     }
   }
 }
