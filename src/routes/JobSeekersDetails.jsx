@@ -118,7 +118,7 @@ export default function JobSeekersDetails() {
                 </a>
               </p>
 
-              <div className="bottom_action">
+              <div className="bottom_action mt-4">
                 <div className="share">
                   <p>Share: </p>
 

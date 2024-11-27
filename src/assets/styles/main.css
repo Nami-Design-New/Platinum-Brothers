@@ -1062,7 +1062,6 @@ body .bottom_action {
 }
 body .bottom_action .share {
   display: flex;
-  margin-top: 24px;
   align-items: center;
   gap: 12px;
 }
