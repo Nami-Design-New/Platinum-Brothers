@@ -16,32 +16,32 @@ export default function HowItWorks() {
               </p>
               <ul>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Unique,
+                  <img src="/images/check.svg" alt="check" /> Unique,
                   client-oriented solutions
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Vast network of
+                  <img src="/images/check.svg" alt="check" /> Vast network of
                   resources
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Broad database
-                  of quality candidates
+                  <img src="/images/check.svg" alt="check" /> Broad database of
+                  quality candidates
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Excellent track
+                  <img src="/images/check.svg" alt="check" /> Excellent track
                   record
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Extensive menu
-                  of services
+                  <img src="/images/check.svg" alt="check" /> Extensive menu of
+                  services
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Recruitment
+                  <img src="/images/check.svg" alt="check" /> Recruitment
                   centers and offices throughout the Philippines
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Regional
-                  offices in Hong Kong, Macau, the Middle East, Japan & China.
+                  <img src="/images/check.svg" alt="check" /> Regional offices
+                  in Hong Kong, Macau, the Middle East, Japan & China.
                 </li>
               </ul>
             </div>

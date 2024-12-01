@@ -56,24 +56,10 @@ header {
         color: $dark;
         transition: $transition;
         position: relative;
-        &::after {
-          position: absolute;
-          content: "";
-          height: 1px;
-          width: 0;
-          left: 50%;
-          bottom: -3px;
-          transform: translateX(-50%);
-          transition: $transition;
-          background: $main;
-        }
+        font-weight: 500;
         &.active,
         &:hover {
           color: $main;
-          &::after {
-            width: 100%;
-            right: 0;
-          }
         }
         &.logo {
           height: fit-content;

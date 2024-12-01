@@ -43,7 +43,7 @@
   h2 {
     color: $white;
     text-align: center;
-    font-size: 48px;
+    font-size: 46px;
     margin: 0 auto;
     margin-bottom: 62px;
     @media screen and (max-width: 576px) {
@@ -63,18 +63,22 @@
   ul {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
     li {
       align-items: center;
       display: flex;
       gap: 12px;
       color: $white;
+      img {
+        filter: brightness(0) invert(1);
+      }
     }
   }
 }
 
 .how_we_do {
   padding: 60px 0;
+  background: #f4f5f8;
   .content {
     height: 100%;
     display: flex;
@@ -83,6 +87,9 @@
     justify-content: center;
     h2 {
       color: $main;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.7;
     }
     p {
       line-height: 2;
@@ -113,6 +120,19 @@
       max-width: 200px;
       min-width: 200px;
       gap: 18px;
+      position: relative;
+      .num {
+        position: absolute;
+        top: 8px;
+        left: 20px;
+        z-index: 9;
+        background: #6673af;
+        color: $white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        @include centerFlex();
+      }
 
       @media screen and (max-width: 768px) {
         max-width: 160px;
@@ -123,7 +143,6 @@
         height: 180px;
         background: $white;
         border-radius: 50%;
-        box-shadow: $shadow;
         @include centerFlex;
         position: relative;
         @media screen and (max-width: 768px) {
@@ -152,7 +171,8 @@
       h4 {
         text-align: center;
         font-size: 24px;
-        color: $main;
+        color: #333;
+        font-weight: 600;
         margin: 0;
         @media screen and (max-width: 768px) {
           font-size: 18px;
@@ -171,6 +191,7 @@
 
 .parteners {
   padding: 60px 0;
+  background: #f4f5f8;
   .content {
     display: flex;
     flex-direction: column;
@@ -223,11 +244,10 @@
 
 .resumes {
   padding: 60px 0;
-  background: #fbfdfe;
+  background: #f4f5f8;
   .cv {
     display: flex;
     background: $white;
-    box-shadow: $shadow;
     overflow: hidden;
     position: relative;
     @media screen and (max-width: 768px) {
@@ -239,7 +259,7 @@
         aspect-ratio: 3 / 2;
         width: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: 50% 30%;
       }
     }
     .content {
@@ -391,5 +411,18 @@
     padding: 12px 32px;
     border-radius: 80px;
     color: $main;
+  }
+}
+.logos {
+  background: $white;
+  padding: 40px 0;
+  width: 100%;
+  display: block;
+  .imgs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    .img {
+      @include centerFlex();
+    }
   }
 }

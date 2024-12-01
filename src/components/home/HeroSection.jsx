@@ -13,19 +13,16 @@ export default function HeroSection() {
         effect="fade"
         pagination={{ clickable: true }}
         modules={[EffectFade, Pagination, Autoplay]}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 8000, disableOnInteraction: false }}
       >
         <SwiperSlide>
           <div className="slide">
             <img src="/images/s1.jpg" alt="" />
             <div className="content">
               <div className="container">
-                <h1>Platinum Brothers</h1>
-                <p>
-                  We are a professional broker that provides services related to
-                  the real estate industry.
-                </p>
-                <a href="/contact">Contact Us</a>
+                <a href="/contact">
+                  Get Started <img src="/images/arrow.svg" alt="arrow-right" />
+                </a>
               </div>
             </div>
           </div>
@@ -36,12 +33,9 @@ export default function HeroSection() {
             <img src="/images/s2.jpg" alt="" />
             <div className="content">
               <div className="container">
-                <h1>Platinum Brokers</h1>
-                <p>
-                  We are a professional broker that provides services related to
-                  the real estate industry.
-                </p>
-                <a href="/contact">Contact Us</a>
+                <a href="/contact">
+                  Get Started <img src="/images/arrow.svg" alt="arrow-right" />
+                </a>
               </div>
             </div>
           </div>
@@ -52,12 +46,9 @@ export default function HeroSection() {
             <img src="/images/s3.jpg" alt="" />
             <div className="content">
               <div className="container">
-                <h1>Platinum Brokers</h1>
-                <p>
-                  We are a professional broker that provides services related to
-                  the real estate industry.
-                </p>
-                <a href="/contact">Contact Us</a>
+                <a href="/contact">
+                  Get Started <img src="/images/arrow.svg" alt="arrow-right" />
+                </a>
               </div>
             </div>
           </div>

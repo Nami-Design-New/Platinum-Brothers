@@ -42,9 +42,14 @@ export default function WhatWeDo() {
               <h3>What We Do?</h3>
               <p>
                 <b>Platinum Brothers International Manpower Agency Inc.</b>{" "}
-                provides staffing solutions for hospitality, medical,
-                construction, oil & gas, and other service industries worldwide.
-                We specialize in providing staff to:
+                (PBIMAI) is one of the most renowned overseas employment
+                agencies in the Philippines, which is also authentic, and
+                license approved by the Ministry of labor and Employment,
+                Government of Philippines. Over the years of commitment to
+                quality, we have consistently been producing significant amount
+                of successful deployment to satisfy our clients worldwide. We
+                have specialized recruitment and deployment teams for the
+                following sectors:
               </p>
               <ul className="mb-4">
                 {industries.map((industry, index) => (

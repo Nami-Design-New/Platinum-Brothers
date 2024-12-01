@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../ui/layout/PageHeader";
+import Pagination from "../ui/layout/Pagination";
 
 export default function JobSeekers() {
   return (
@@ -23,20 +24,19 @@ export default function JobSeekers() {
 
                 <ul>
                   <li>
-                    <i className="fa-regular fa-circle-check"></i> Earn more
-                    money?
+                    <img src="/images/check.svg" alt="check" /> Earn more money?
                   </li>
                   <li>
-                    <i className="fa-regular fa-circle-check"></i> Improve your
+                    <img src="/images/check.svg" alt="check" /> Improve your
                     chances of getting hired?
                   </li>
                   <li>
-                    <i className="fa-regular fa-circle-check"></i> Find out
-                    about the right job for you?
+                    <img src="/images/check.svg" alt="check" /> Find out about
+                    the right job for you?
                   </li>
                   <li>
-                    <i className="fa-regular fa-circle-check"></i> Learn about
-                    job and career opportunities all over the world?
+                    <img src="/images/check.svg" alt="check" /> Learn about job
+                    and career opportunities all over the world?
                   </li>
                 </ul>
 
@@ -56,7 +56,11 @@ export default function JobSeekers() {
             </div>
             <div className="col-lg-6 col-12 p-2 mt-5 mt-lg-0">
               <div className="about_img">
-                <img src="/images/jobs_img.jpg" alt="about" />
+                <img
+                  src="/images/seekers.jpg"
+                  style={{ aspectRatio: "3 / 2", objectFit: "cover" }}
+                  alt="about"
+                />
               </div>
             </div>
           </div>
@@ -241,6 +245,9 @@ export default function JobSeekers() {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="col-12 p-2">
+              <Pagination />
             </div>
           </div>
         </div>

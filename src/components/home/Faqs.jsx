@@ -60,7 +60,7 @@ export default function Faqs() {
               {faqs.map((faq, index) => (
                 <Accordion.Item eventKey={index.toString()} key={index}>
                   <Accordion.Header>
-                    <div className="num">{index + 1} -</div> {faq.title}
+                    <div className="num">{index + 1}</div> {faq.title}
                   </Accordion.Header>
                   <Accordion.Body>
                     <p>{faq.text}</p>
