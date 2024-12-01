@@ -1305,6 +1305,11 @@ body .contact_section .employeer_contact {
   gap: 16px;
   border-radius: 32px;
 }
+@media screen and (max-width: 768px) {
+  body .contact_section .employeer_contact {
+    padding: 40px;
+  }
+}
 body .contact_section .employeer_contact h4 {
   color: #fff;
   font-size: 32px;
