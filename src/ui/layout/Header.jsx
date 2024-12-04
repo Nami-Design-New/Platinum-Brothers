@@ -18,8 +18,13 @@ export default function Header() {
           <li>MANILA</li>
           <li>CEBU</li>
           <li>DAVAO</li>
+          <li>ILOILO</li>
+          <li>CABANATUAN</li>
+          <li> BUTUAN</li>
+          <li>TACLOBAN</li>
         </ul>
       </div>
+      
       <div className="container">
         <nav>
           <Link to="/" className="logo">
@@ -68,7 +73,7 @@ export default function Header() {
               className="nav_link login"
               onClick={() => setIsOpen(false)}
             >
-              Login <i className="fa-solid fa-arrow-right-to-bracket"></i>
+              Login <i className="fa-solid fa-arrow-right-to-bracket" />
             </Link>
           </div>
 
@@ -78,11 +83,11 @@ export default function Header() {
               to="https://platinumbrothers.traffit.com/login"
               className="customBtn"
             >
-              Login <i className="fa-solid fa-arrow-right-to-bracket"></i>
+              Login <i className="fa-solid fa-arrow-right-to-bracket" />
             </Link>
 
             <button className="toggler" onClick={() => setIsOpen(!isOPen)}>
-              <i className="fa-solid fa-bars"></i>
+              <i className="fa-solid fa-bars" />
             </button>
           </div>
         </nav>

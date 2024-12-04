@@ -20,6 +20,11 @@ export default function HeroSection() {
             <img src="/images/s1.jpg" alt="" />
             <div className="content">
               <div className="container">
+                <h1>
+                  Certified and Trusted <br />{" "}
+                  <span style={{ color: "#001489" }}>Recruitment</span> Agency
+                </h1>
+
                 <a href="/contact">
                   Get Started <img src="/images/arrow.svg" alt="arrow-right" />
                 </a>
@@ -33,6 +38,11 @@ export default function HeroSection() {
             <img src="/images/s2.jpg" alt="" />
             <div className="content">
               <div className="container">
+                <h1>
+                  <span style={{ color: "#001489" }}> Specialized </span> Teams
+                  for <br /> Diverse Sectors{" "}
+                </h1>
+
                 <a href="/contact">
                   Get Started <img src="/images/arrow.svg" alt="arrow-right" />
                 </a>
@@ -46,6 +56,12 @@ export default function HeroSection() {
             <img src="/images/s3.jpg" alt="" />
             <div className="content">
               <div className="container">
+                <h1>
+                  Seamless Recruitment Experience,<br /> from Deployment to{" "}
+                  <br />
+                  Ongoing <span style={{ color: "#001489" }}> Support </span>
+                </h1>
+
                 <a href="/contact">
                   Get Started <img src="/images/arrow.svg" alt="arrow-right" />
                 </a>

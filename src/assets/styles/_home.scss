@@ -40,6 +40,13 @@
           color: $white;
           max-width: 500px;
         }
+        h1 {
+          font-size: 36px;
+          line-height: 1.5;
+          @media screen and (max-width: 576px) {
+            font-size: 26px;
+          }
+        }
         a {
           background: $main;
           color: $white;

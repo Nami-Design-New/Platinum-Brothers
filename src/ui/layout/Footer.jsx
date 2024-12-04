@@ -12,22 +12,22 @@ export default function Footer() {
             <ul className="social_media">
               <li>
                 <Link to="">
-                  <i className="fa-brands fa-facebook-f"></i>
+                  <i className="fa-brands fa-facebook-f" />
                 </Link>
               </li>
               <li>
                 <Link to="">
-                  <i className="fa-brands fa-instagram"></i>
+                  <i className="fa-brands fa-instagram" />
                 </Link>
               </li>
               <li>
                 <Link to="">
-                  <i className="fa-brands fa-twitter"></i>
+                  <i className="fa-brands fa-twitter" />
                 </Link>
               </li>
               <li>
                 <Link to="">
-                  <i className="fa-brands fa-linkedin-in"></i>
+                  <i className="fa-brands fa-linkedin-in" />
                 </Link>
               </li>
             </ul>
@@ -82,7 +82,7 @@ export default function Footer() {
           <div className="col-12 p-2">
             <div className="copyRights">
               <p>
-                Copyright 2023 © Platinum Brothers International Manpower Agency
+                Copyright 2025 © Platinum Brothers International Manpower Agency
                 Inc. All Rights Reserved.
               </p>
             </div>
