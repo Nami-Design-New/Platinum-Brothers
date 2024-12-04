@@ -51,12 +51,12 @@ export default function Contact() {
           <Modal.Title style={{color:"#001489"}}>Online inquiry (Employers Only)</Modal.Title>
           <p style={{color:"#777" , padding:"0" , margin:"0"}}>To Make an inquiry , Please fill out The Form below and we Will get back to you as soon as possible</p>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body >
 
-        <section className="contact_form">
+        <section className="contact_form" >
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-10 col-12 p-2">
+            <div className="col-lg-12 col-12 p-2">
               <h3>CONTACT FORM</h3>
               <form className="row">
 
@@ -104,12 +104,6 @@ export default function Contact() {
 
         </Modal.Body>
 
-        <Modal.Footer>
-        <Button  onClick={handleClose} >
-            x
-          </Button>
-
-        </Modal.Footer>
       </Modal>
 
 

@@ -66,70 +66,64 @@ export default function Employers() {
 
               {/* modal*/}
               <Modal size="lg" show={show} onHide={handleClose}>
-        <Modal.Header closeButton style={{flexDirection:"column",alignItems:"start" , gap:"8px"}}  >
+                <Modal.Header closeButton style={{flexDirection:"column",alignItems:"start" , gap:"8px"}}  >
 
-          <Modal.Title style={{color:"#001489"}}>Online inquiry (Employers Only)</Modal.Title>
-          <p style={{color:"#777" , padding:"0" , margin:"0"}}>To Make an inquiry , Please fill out The Form below and we Will get back to you as soon as possible</p>
-        </Modal.Header>
-        <Modal.Body>
+                  <Modal.Title style={{color:"#001489"}}>Online inquiry (Employers Only)</Modal.Title>
+                  <p style={{color:"#777" , padding:"0" , margin:"0"}}>To Make an inquiry , Please fill out The Form below and we Will get back to you as soon as possible</p>
+                </Modal.Header>
+                <Modal.Body>
 
-        <section className="contact_form">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10 col-12 p-2">
-              <h3>CONTACT FORM</h3>
-              <form className="row">
+                <section className="contact_form">
+                <div className="container">
+                  <div className="row justify-content-center">
+                    <div className="col-lg-12 col-12 p-2">
+                      <h3>CONTACT FORM</h3>
+                      <form className="row">
 
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="First Name" />
+                        <div className="col-lg-6 col-12 p-2">
+                          <input type="text" placeholder="First Name" />
+                        </div>
+
+                        <div className="col-lg-6 col-12 p-2">
+                          <input type="text" placeholder="Name of Company" />
+                        </div>
+                        <div className="col-lg-6 col-12 p-2">
+                          <input type="text" placeholder="Position" />
+                        </div>
+
+
+
+                        <div className="col-lg-6 col-12 p-2">
+                          <input type="text" placeholder="Last Name" />
+                        </div>
+
+                        <div className="col-lg-6 col-12 p-2">
+                          <input type="tel" placeholder="Contact Number" />
+                        </div>
+
+                        <div className="col-lg-6 col-12 p-2">
+                          <input type="email" placeholder="Email Address" />
+                        </div>
+                        <div className="col-12 p-2">
+                          <input type="subject" placeholder="Subject" />
+                        </div>
+                        <div className="col-12 p-2">
+                          <textarea placeholder="Message"></textarea>
+                        </div>
+                        <div className="col-12 p-2 mt-3 d-flex justify-content-center">
+                          <button>Submit</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
                 </div>
-
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="Name of Company" />
-                </div>
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="Position" />
-                </div>
-
-
-
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="Last Name" />
-                </div>
-
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="tel" placeholder="Contact Number" />
-                </div>
-
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="email" placeholder="Email Address" />
-                </div>
-                <div className="col-12 p-2">
-                  <input type="subject" placeholder="Subject" />
-                </div>
-                <div className="col-12 p-2">
-                  <textarea placeholder="Message"></textarea>
-                </div>
-                <div className="col-12 p-2 mt-3 d-flex justify-content-center">
-                  <button>Submit</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+              </section>
 
 
 
 
-        </Modal.Body>
+                </Modal.Body>
 
-        <Modal.Footer>
-        <Button  onClick={handleClose} >
-            x
-          </Button>
-
-        </Modal.Footer>
               </Modal>
 
 
