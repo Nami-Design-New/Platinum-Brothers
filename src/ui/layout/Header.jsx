@@ -22,9 +22,10 @@ export default function Header() {
           <li>CABANATUAN</li>
           <li> BUTUAN</li>
           <li>TACLOBAN</li>
+          <li>CAGAYAN DE ORO</li>
         </ul>
       </div>
-      
+
       <div className="container">
         <nav>
           <Link to="/" className="logo">

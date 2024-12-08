@@ -2,6 +2,7 @@ import { useState } from "react";
 import PageHeader from "./../ui/layout/PageHeader";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import mssge from "../../public/images/mssge.svg"
 
 
 export default function Contact() {
@@ -28,13 +29,20 @@ export default function Contact() {
           </div>
           <div className="col-12 p-2">
             <div className="employeer_contact">
+              
+              <div >
               <h4>ARE YOU AN EMPLOYER?</h4>
               <p>
-                Click the button on the right for the employer form instead of
+                Click the button on the right for the employer form ,instead of
                 the employee form below.
               </p>
 
-              <button onClick={handleShow}>contact us</button>
+
+              </div>
+
+          <button onClick={handleShow}>       <img src={mssge} alt="mssge" /> contact us
+          </button>
+
 
               
 
@@ -160,12 +168,16 @@ export default function Contact() {
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                    2nd Floor LV. Oandasan Bldg. 1680 Mabini St. cor. Malvar
-                    St., Malate, Manila, Philippines
+                    BBW J-02 C286 TO C290 BLUE BAY WALK METRO 
+                    PARK EDSA EXTN. COR. PRES. DIOSDADO
+                    MACAPAGAL BLVD. PASAY CITY.
+
+
                   </li>
                   <li>
                     <i className="fa-light fa-phone"></i>
-                    <a href="tel:028-554-0408">028-554-0408</a>
+                    <a href="tel:028-554-0408">028-288-6487
+                    </a>
                   </li>
                   <li>
                     <i className="fa-light fa-envelope"></i>
@@ -199,8 +211,9 @@ export default function Contact() {
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                    Room 317 Lim Tian He Building Fuente Osmeña Boulevard, Cebu
-                    City (Landmark: Mcdonald’s Fuente)
+                    ROOM314 LIM TIANHE BLDG. FUENTEOSMEÑA CEBUCITY. 
+
+
                   </li>
                   <li>
                     <i className="fa-light fa-phone"></i>
@@ -213,7 +226,7 @@ export default function Contact() {
                     </a>
                   </li>
                   <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 6 PM
+                    <i className="fa-light fa-clock"></i> 9 AM - 7 PM
                   </li>
                 </ul>
               </div>
@@ -239,12 +252,13 @@ export default function Contact() {
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                    Door 4&5 2nd Floor YL Finance Building Bajada, Davao City
-                    (Landmark: Near NBI)
-                  </li>
+                     2ND FLR YL FINANCE BLDG. JP LAUREL AVE. BAJADA  DAVAO CITY.
+
+                    </li>
                   <li>
                     <i className="fa-light fa-phone"></i>
-                    <a href="tel:082-228-7283">082-228-7283</a>
+                    <a href="tel:082-228-7283">2287-283
+                    </a>
                   </li>
                   <li>
                     <i className="fa-light fa-envelope"></i>
@@ -253,7 +267,7 @@ export default function Contact() {
                     </a>
                   </li>
                   <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 6 PM
+                    <i className="fa-light fa-clock"></i> 9 AM - 7 PM
                   </li>
                 </ul>
               </div>
@@ -489,13 +503,6 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="co-12 p-2 mt-4">
-              <h6>Platinum Eastern Recruitment Agency</h6>
-              <a href="tel:920003174">
-                {" "}
-                <i className="fa-light fa-phone"></i> 920003174
-              </a>
-            </div>
 
 
           </div>

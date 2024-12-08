@@ -30,7 +30,6 @@ export default function Employers() {
       <Why />
       <HowWeDoIT />
       <Methods />
-
       <section className="parteners">
         <div className="container">
           <div className="row justify-content-center">
@@ -54,16 +53,21 @@ export default function Employers() {
                 </p>
                 <Link
                   onClick={handleShow}
-                  className="customBtn"
+                  className="customBtns"
+                  
                 >
-                  Get Started
+
+                   Get Started 
+                   <img src="/images/arrow.svg" alt="arrow-right" style={{}} />
+
                 </Link>
+
+
               </div>
             </div>
           </div>
         </div>
       </section>
-
               {/* modal*/}
               <Modal size="lg" show={show} onHide={handleClose}>
                 <Modal.Header closeButton style={{flexDirection:"column",alignItems:"start" , gap:"8px"}}  >

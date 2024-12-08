@@ -8,6 +8,7 @@
     h1 {
       font-size: 36px;
       color: $main;
+      font-weight: 700;
       @media screen and (max-width: 768px) {
         font-size: 26px;
       }
@@ -88,7 +89,7 @@
     h2 {
       color: $main;
       font-size: 32px;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.7;
     }
     p {
@@ -100,6 +101,7 @@
     color: $main;
     margin-top: 24px;
     text-align: center;
+    font-weight: 700;
   }
   .subtitle {
     text-align: center;
@@ -313,6 +315,7 @@
   background: $main;
   h2 {
     color: $white;
+    font-weight: 700;
   }
 
   form {

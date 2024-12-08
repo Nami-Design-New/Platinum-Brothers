@@ -22,30 +22,31 @@ export default function Features() {
 
               <ul className="mb-4">
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Financing
+                  <i className="fa-regular fa-circle-check" /> Financing
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Language Courses
+                  <i className="fa-regular fa-circle-check" /> Language Courses
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Medical Testing
+                  <i className="fa-regular fa-circle-check" /> Medical Testing
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Visa Processing
+                  <i className="fa-regular fa-circle-check" /> Visa Processing
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Skills Assessment
+                  <i className="fa-regular fa-circle-check" /> Skills Assessment
                 </li>
                 <li>
-                  <i className="fa-regular fa-circle-check"></i> Airport Assistance
+                  <i className="fa-regular fa-circle-check" /> Airport
+                  Assistance
                 </li>
               </ul>
 
               <div>
                 <h6>For further information, please email us at: </h6>
                 <Link to="mailto:contact@Platinumbrothers.com.ph">
-                  <i className="fa-regular fa-envelope"></i>{" "}
-                  contact@Platinumbrothers.com.ph
+                  <i className="fa-regular fa-envelope" />
+                  info@platinumbrothers.com.ph
                 </Link>
               </div>
             </div>

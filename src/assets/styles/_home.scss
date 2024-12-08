@@ -307,8 +307,7 @@
 
 .statistics_section {
   min-height: 400px;
-  background-image: linear-gradient(#001589d9, #001589d9),
-    url("/images/platinum-workers.jpg");
+  background-image: linear-gradient(#001589d9, #001589d9);
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -323,7 +322,7 @@
       position: relative;
     }
     img {
-      height: 360px;
+      height: 320px;
       position: absolute;
       top: -230px;
       left: 50%;

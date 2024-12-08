@@ -176,6 +176,27 @@ $shadow: 0px 2px 8px #0000001a;
     }
   }
 }
+.customBtns {
+  outline: none;
+  background: none;
+  isolation: isolate;
+  padding: 12px 32px;
+  border: 1px solid $main;
+  background-color: $main;
+  color: #fff;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: $transition;
+
+  img {
+    filter: brightness(0) invert(1);
+  }
+}
 
 .css-t3ipsp-control {
   border-color: $lightGray !important;

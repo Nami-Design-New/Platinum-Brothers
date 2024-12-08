@@ -134,6 +134,27 @@ input[type=number]::-webkit-inner-spin-button {
   right: -10px;
 }
 
+.customBtns {
+  outline: none;
+  background: none;
+  isolation: isolate;
+  padding: 12px 32px;
+  border: 1px solid #001489;
+  background-color: #001489;
+  color: #fff;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+}
+.customBtns img {
+  filter: brightness(0) invert(1);
+}
+
 .css-t3ipsp-control {
   border-color: #eeeeee !important;
   box-shadow: none !important;
@@ -241,7 +262,7 @@ body header .top_bar ul {
 }
 @media (max-width: 767px) {
   body header .top_bar ul {
-    font-size: 7px;
+    font-size: 6px;
   }
 }
 body header .top_bar ul li {
@@ -674,7 +695,7 @@ body .section_hint {
 }
 body .statistics_section {
   min-height: 400px;
-  background-image: linear-gradient(rgba(0, 21, 137, 0.8509803922), rgba(0, 21, 137, 0.8509803922)), url("/images/platinum-workers.jpg");
+  background-image: linear-gradient(rgba(0, 21, 137, 0.8509803922), rgba(0, 21, 137, 0.8509803922));
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -691,7 +712,7 @@ body .statistics_section .content .img {
   position: relative;
 }
 body .statistics_section .content img {
-  height: 360px;
+  height: 320px;
   position: absolute;
   top: -230px;
   left: 50%;
@@ -868,6 +889,7 @@ body .how_it_works .content {
 body .how_it_works .content h1 {
   font-size: 36px;
   color: #001489;
+  font-weight: 700;
 }
 @media screen and (max-width: 768px) {
   body .how_it_works .content h1 {
@@ -948,7 +970,7 @@ body .how_we_do .content {
 body .how_we_do .content h2 {
   color: #001489;
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.7;
 }
 body .how_we_do .content p {
@@ -959,6 +981,7 @@ body .how_we_do .title {
   color: #001489;
   margin-top: 24px;
   text-align: center;
+  font-weight: 700;
 }
 body .how_we_do .subtitle {
   text-align: center;
@@ -1184,6 +1207,7 @@ body .filter_section {
 }
 body .filter_section h2 {
   color: #fff;
+  font-weight: 700;
 }
 body .filter_section form {
   margin-top: 32px;
@@ -1302,6 +1326,7 @@ body .contact_section h2 {
   color: #001489;
   font-size: 28px;
   margin-bottom: 24px;
+  font-weight: 700;
 }
 body .contact_section .contact_text {
   color: #333;
@@ -1315,13 +1340,13 @@ body .contact_section .employeer_contact {
   background-position: bottom;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   border-radius: 32px;
 }
 @media screen and (max-width: 768px) {
   body .contact_section .employeer_contact {
     padding: 40px;
+    flex-direction: column;
   }
 }
 body .contact_section .employeer_contact h4 {
@@ -1330,15 +1355,19 @@ body .contact_section .employeer_contact h4 {
 }
 body .contact_section .employeer_contact p {
   color: #fff;
-  font-size: 18px;
+  font-size: 19px;
 }
 body .contact_section .employeer_contact button {
   width: -moz-fit-content;
   width: fit-content;
-  border: 1px solid #fff;
+  border: 0.5px solid #fff;
   color: #fff;
-  padding: 12px 32px;
-  border-radius: 60px;
+  padding: 8px 30px;
+  border-radius: 10px;
+}
+body .contact_section .employeer_contact button img {
+  width: 30px;
+  margin-inline-end: 12px;
 }
 body .contact_form {
   padding: 60px 0;
@@ -1731,4 +1760,5 @@ footer .copyRights p {
   color: #fff;
   margin: auto 0;
   font-size: 42px;
+  font-weight: 700;
 }/*# sourceMappingURL=main.css.map */

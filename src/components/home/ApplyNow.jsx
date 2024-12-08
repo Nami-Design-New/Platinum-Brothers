@@ -10,10 +10,11 @@ export default function ApplyNow() {
         </div>
         <div className="content">
           <p>
-            <b>HOUSEHOLD WORKERS</b> from the Philippines are known all over the
-            world for excellent. Join the Overseas Filipino Worker (OFW) House
-            Hold Workers of the Middle East, by applying to Platinum Brothers
-            International Manpower Agency Inc.
+            <b>HOUSEHOLD WORKERS</b>
+            From the Middle East to new corners of the globe,{" "}
+            <b>FILIPINO HOUSEHOLD WORKERS</b> are gaining recognition for their
+            expertise.Join the growing network of Overseas Filipino Workers
+            (OFWs) serving diverse international markets.
           </p>
         </div>
       </div>
@@ -26,9 +27,12 @@ export default function ApplyNow() {
         </div>
         <div className="content">
           <p>
-            Platinum Brothers International Manpower Agency Inc. also deploys
-            <b> SKILLED WORKERS</b> like Engineer and Hospital industry
-            workforce in the Middle East.
+            <b>SKILLED WORKERS</b>
+            Platinum Brothers International Manpower Agency Inc. is a reputable
+            agency that specializes in deploying <b>SKILLED FILIPINO WORKERS</b>
+            to various countries, including the Middle East. They cater to a
+            wide range of industries, and their services extend beyond the
+            Middle East to other global markets.
           </p>
         </div>
       </div>
