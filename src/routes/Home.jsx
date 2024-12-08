@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import AboutSection from "../components/home/AboutSection";
 import ApplyNow from "../components/home/ApplyNow";
 import Faqs from "../components/home/Faqs";
@@ -5,8 +6,21 @@ import Features from "../components/home/Features";
 import HeroSection from "../components/home/HeroSection";
 import WhatWeDo from "../components/home/WhatWeDo";
 import WhyChooseOFW from "../components/home/WhyChooseOFW";
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
+  const location = useLocation();
+  useEffect(() => {
+    setTimeout(() => {
+      if (location.hash.split("#")[1]) {
+        const element = document.getElementById(location.hash.split("#")[1]);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }, 100);
+  }, [location]);
+
   return (
     <>
       <HeroSection />
@@ -37,7 +51,7 @@ export default function Home() {
         </div>
       </section>
       <Features />
-      <Faqs   />
+      <Faqs />
     </>
   );
 }

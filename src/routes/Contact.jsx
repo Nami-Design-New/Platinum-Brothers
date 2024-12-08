@@ -1,17 +1,12 @@
 import { useState } from "react";
 import PageHeader from "./../ui/layout/PageHeader";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import mssge from "../../public/images/mssge.svg"
-
+import Modal from "react-bootstrap/Modal";
 
 export default function Contact() {
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
 
   return (
     <>
@@ -29,91 +24,82 @@ export default function Contact() {
           </div>
           <div className="col-12 p-2">
             <div className="employeer_contact">
-              
-              <div >
-              <h4>ARE YOU AN EMPLOYER?</h4>
-              <p>
-                Click the button on the right for the employer form ,instead of
-                the employee form below.
-              </p>
-
-
+              <div>
+                <h4>ARE YOU AN EMPLOYER?</h4>
+                <p>
+                  Click the button on the right for the employer form ,instead
+                  of the employee form below.
+                </p>
               </div>
 
-          <button onClick={handleShow}>       <img src={mssge} alt="mssge" /> contact us
-          </button>
-
-
-              
-
-
+              <button onClick={handleShow}>
+                {" "}
+                <img src="/images/mssge.svg" alt="mssge" /> contact us
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-        {/* modal*/}
+      {/* modal*/}
       <Modal size="lg" show={show} onHide={handleClose}>
-        <Modal.Header closeButton style={{flexDirection:"column",alignItems:"start" , gap:"8px"}}  >
-
-          <Modal.Title style={{color:"#001489"}}>Online inquiry (Employers Only)</Modal.Title>
-          <p style={{color:"#777" , padding:"0" , margin:"0"}}>To Make an inquiry , Please fill out The Form below and we Will get back to you as soon as possible</p>
+        <Modal.Header
+          closeButton
+          style={{ flexDirection: "column", alignItems: "start", gap: "8px" }}
+        >
+          <Modal.Title style={{ color: "#001489" }}>
+            Online inquiry (Employers Only)
+          </Modal.Title>
+          <p style={{ color: "#777", padding: "0", margin: "0" }}>
+            To Make an inquiry , Please fill out The Form below and we Will get
+            back to you as soon as possible
+          </p>
         </Modal.Header>
-        <Modal.Body >
+        <Modal.Body>
+          <section className="contact_form">
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-lg-12 col-12 p-2">
+                  <h3>CONTACT FORM</h3>
+                  <form className="row">
+                    <div className="col-lg-6 col-12 p-2">
+                      <input type="text" placeholder="First Name" />
+                    </div>
 
-        <section className="contact_form" >
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-12 col-12 p-2">
-              <h3>CONTACT FORM</h3>
-              <form className="row">
+                    <div className="col-lg-6 col-12 p-2">
+                      <input type="text" placeholder="Name of Company" />
+                    </div>
+                    <div className="col-lg-6 col-12 p-2">
+                      <input type="text" placeholder="Position" />
+                    </div>
 
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="First Name" />
-                </div>
+                    <div className="col-lg-6 col-12 p-2">
+                      <input type="text" placeholder="Last Name" />
+                    </div>
 
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="Name of Company" />
-                </div>
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="Position" />
-                </div>
+                    <div className="col-lg-6 col-12 p-2">
+                      <input type="tel" placeholder="Contact Number" />
+                    </div>
 
-
-
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="Last Name" />
+                    <div className="col-lg-6 col-12 p-2">
+                      <input type="email" placeholder="Email Address" />
+                    </div>
+                    <div className="col-12 p-2">
+                      <input type="subject" placeholder="Subject" />
+                    </div>
+                    <div className="col-12 p-2">
+                      <textarea placeholder="Message"></textarea>
+                    </div>
+                    <div className="col-12 p-2 mt-3 d-flex justify-content-center">
+                      <button>Submit</button>
+                    </div>
+                  </form>
                 </div>
-
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="tel" placeholder="Contact Number" />
-                </div>
-
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="email" placeholder="Email Address" />
-                </div>
-                <div className="col-12 p-2">
-                  <input type="subject" placeholder="Subject" />
-                </div>
-                <div className="col-12 p-2">
-                  <textarea placeholder="Message"></textarea>
-                </div>
-                <div className="col-12 p-2 mt-3 d-flex justify-content-center">
-                  <button>Submit</button>
-                </div>
-              </form>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-
-
-
+          </section>
         </Modal.Body>
-
       </Modal>
-
 
       <section className="contact_form">
         <div className="container">
@@ -140,7 +126,7 @@ export default function Contact() {
                   <textarea placeholder="Message"></textarea>
                 </div>
                 <div className="col-12 p-2 mt-3 d-flex justify-content-center">
-                  <button >Submit</button>
+                  <button>Submit</button>
                 </div>
               </form>
             </div>
@@ -168,16 +154,12 @@ export default function Contact() {
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                    BBW J-02 C286 TO C290 BLUE BAY WALK METRO 
-                    PARK EDSA EXTN. COR. PRES. DIOSDADO
-                    MACAPAGAL BLVD. PASAY CITY.
-
-
+                    BBW J-02 C286 TO C290 BLUE BAY WALK METRO PARK EDSA EXTN.
+                    COR. PRES. DIOSDADO MACAPAGAL BLVD. PASAY CITY.
                   </li>
                   <li>
                     <i className="fa-light fa-phone"></i>
-                    <a href="tel:028-554-0408">028-288-6487
-                    </a>
+                    <a href="tel:028-554-0408">028-288-6487</a>
                   </li>
                   <li>
                     <i className="fa-light fa-envelope"></i>
@@ -211,9 +193,7 @@ export default function Contact() {
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                    ROOM314 LIM TIANHE BLDG. FUENTEOSMEÑA CEBUCITY. 
-
-
+                    ROOM314 LIM TIANHE BLDG. FUENTEOSMEÑA CEBUCITY.
                   </li>
                   <li>
                     <i className="fa-light fa-phone"></i>
@@ -231,7 +211,6 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-
           </div>
 
           <div className="row">
@@ -252,13 +231,11 @@ export default function Contact() {
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                     2ND FLR YL FINANCE BLDG. JP LAUREL AVE. BAJADA  DAVAO CITY.
-
-                    </li>
+                    2ND FLR YL FINANCE BLDG. JP LAUREL AVE. BAJADA DAVAO CITY.
+                  </li>
                   <li>
                     <i className="fa-light fa-phone"></i>
-                    <a href="tel:082-228-7283">2287-283
-                    </a>
+                    <a href="tel:082-228-7283">2287-283</a>
                   </li>
                   <li>
                     <i className="fa-light fa-envelope"></i>
@@ -272,15 +249,7 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-
-
-
-
-
-            
           </div>
-
-
 
           <div className="row">
             <div className="col-lg-6 col-12 p-2">
@@ -300,7 +269,8 @@ export default function Contact() {
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                    UNIT B. 2ND FLOOR GRANDE J.E BUILDING BRGY. IBARRA RIZAL STREET ILOILO CITY.
+                    UNIT B. 2ND FLOOR GRANDE J.E BUILDING BRGY. IBARRA RIZAL
+                    STREET ILOILO CITY.
                   </li>
 
                   <li>
@@ -319,9 +289,7 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-
           </div>
-
 
           <div className="row">
             <div className="col-lg-6 col-12 p-2">
@@ -342,13 +310,11 @@ export default function Contact() {
                   <li>
                     <i className="fa-light fa-map-pin"></i>
                     LOT 17 BLK 1 BRGY. 73 PHHC NULA - TULA TACLOBAN CITY.
+                  </li>
 
-                    </li>
-                  
                   <li>
                     <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">053-830-8878
-                    </a>
+                    <a href="tel:032-253-0098">053-830-8878</a>
                   </li>
                   <li>
                     <i className="fa-light fa-envelope"></i>
@@ -362,11 +328,7 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-
           </div>
-
-
-
 
           <div className="row">
             <div className="col-lg-6 col-12 p-2">
@@ -386,16 +348,13 @@ export default function Contact() {
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                    JUSTO BLDG. LOT 1689 QUEZON DISTRICT MABINI ST. BRGY.SANGITAN CABANATUAN CITY.
- 
+                    JUSTO BLDG. LOT 1689 QUEZON DISTRICT MABINI ST.
+                    BRGY.SANGITAN CABANATUAN CITY.
+                  </li>
 
-                    </li>
-                  
                   <li>
                     <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">N/A
-
-                    </a>
+                    <a href="tel:032-253-0098">N/A</a>
                   </li>
                   <li>
                     <i className="fa-light fa-envelope"></i>
@@ -409,9 +368,7 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-
           </div>
-
 
           <div className="row">
             <div className="col-lg-6 col-12 p-2">
@@ -427,19 +384,17 @@ export default function Contact() {
 
             <div className="col-lg-6 col-12 p-2">
               <div className="content">
-                <h3>CAGAYAN DE ORO
-                </h3>
+                <h3>CAGAYAN DE ORO</h3>
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                    RM-303 PALACIO BUILDING 3RD FLOOR YACAPIN-TIANO STREETS, CAGAYAN DE ORO CITY.
-                    </li>
-                  
+                    RM-303 PALACIO BUILDING 3RD FLOOR YACAPIN-TIANO STREETS,
+                    CAGAYAN DE ORO CITY.
+                  </li>
+
                   <li>
                     <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">N/A
-
-                    </a>
+                    <a href="tel:032-253-0098">N/A</a>
                   </li>
 
                   <li>
@@ -454,10 +409,7 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-
           </div>
-
-
 
           <div className="row">
             <div className="col-lg-6 col-12 p-2">
@@ -473,23 +425,19 @@ export default function Contact() {
 
             <div className="col-lg-6 col-12 p-2">
               <div className="content">
-                <h3>
-                BUTUAN
-                </h3>
+                <h3>BUTUAN</h3>
                 <ul>
                   <li>
                     <i className="fa-light fa-map-pin"></i>
-                    2/F LLIDO BLDG. OCHOA AVE. PALM STREET BRGY. LIMAHA, BUTUAN CITY.
+                    2/F LLIDO BLDG. OCHOA AVE. PALM STREET BRGY. LIMAHA, BUTUAN
+                    CITY.
+                  </li>
 
-                    </li>
-                  
                   <li>
                     <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">N/A
-
-                    </a>
+                    <a href="tel:032-253-0098">N/A</a>
                   </li>
-                  
+
                   <li>
                     <i className="fa-light fa-envelope"></i>
                     <a href="mailto:info@platinumbrothers.com.ph">
@@ -502,18 +450,7 @@ export default function Contact() {
                 </ul>
               </div>
             </div>
-
-
-
           </div>
-
-
-
-
-
-
-
-
         </div>
       </section>
     </>

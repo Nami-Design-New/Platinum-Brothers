@@ -49,8 +49,10 @@ export default function JobSeekers() {
 
                 <p>
                   For further information, please refer to the{" "}
-                    <Link to="/#faqs"  ><b>frequently asked questions (FAQs)</b></Link> or contact any of our
-                  offices.
+                  <Link to="/#faqs">
+                    <b>frequently asked questions (FAQs)</b>
+                  </Link>{" "}
+                  or contact any of our offices.
                 </p>
               </div>
             </div>
