@@ -44,7 +44,7 @@ export default function Features() {
 
               <div>
                 <h6>For further information, please email us at: </h6>
-                <Link to="mailto:contact@Platinumbrothers.com.ph">
+                <Link to="mailto:info@platinumbrothers.com.ph">
                   <i className="fa-regular fa-envelope" />
                   info@platinumbrothers.com.ph
                 </Link>
