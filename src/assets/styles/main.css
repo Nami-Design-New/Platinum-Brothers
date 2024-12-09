@@ -701,7 +701,7 @@ body .section_hint {
 }
 body .statistics_section {
   min-height: 400px;
-  background-image: linear-gradient(rgba(0, 21, 137, 0.8509803922), rgba(0, 21, 137, 0.8509803922));
+  background-color: #001489;
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -718,9 +718,9 @@ body .statistics_section .content .img {
   position: relative;
 }
 body .statistics_section .content img {
-  height: 320px;
+  height: 310px;
   position: absolute;
-  top: -230px;
+  top: -185px;
   left: 50%;
   transform: translateX(-50%);
 }
