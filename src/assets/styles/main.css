@@ -718,9 +718,9 @@ body .statistics_section .content .img {
   position: relative;
 }
 body .statistics_section .content img {
-  height: 310px;
+  height: 320px;
   position: absolute;
-  top: -185px;
+  top: -230px;
   left: 50%;
   transform: translateX(-50%);
 }
