@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import PageHeader from "../ui/layout/PageHeader";
 import Pagination from "../ui/layout/Pagination";
+import useGetJobs from "../hooks/useGetJobs";
 
 export default function JobSeekers() {
+
+  const {data: jobs , isLoading} = useGetJobs();
+
+  
+
   return (
     <>
       <PageHeader title="Jobseekers" image={"/images/jobs.jpg"} />
