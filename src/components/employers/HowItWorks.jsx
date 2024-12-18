@@ -48,7 +48,7 @@ export default function HowItWorks() {
           </div>
           <div className="col-lg-6 col-12 p-2 mt-5 mt-lg-0">
             <div className="about_img">
-              <img src="/images/about.jpg" alt="about" />
+              <img src="/images/about.png" alt="about" />
             </div>
           </div>
           <div className="col-12 p-2 mt-5">

@@ -1,9 +1,12 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://platinumbrothers.traffit.com";
-axios.defaults.headers.common["Content-Type"] = "application/json";
-axios.defaults.headers.common["Accept"] = "application/json";
-
-const axiosInstance = axios.create();
+const axiosInstance = axios.create({
+  baseURL: "https://platinumbrothers.traffit.com",
+  headers: {
+    "Content-Type": "application/json",
+    "X-Request-Page-Size": "10",
+    "X-Request-Current-Page": "1",
+  },
+});
 
 export default axiosInstance;

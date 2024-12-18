@@ -66,15 +66,13 @@ export default function Footer() {
                 <li>
                   <h6>Phone:</h6>
                   <a href="tel:028-554-0408">028-554-0408 ( Manila )</a>
-                  <a href="tel:032-253-0098">032-253-0098 ( Cebu )</a>
-                  <a href="tel:082-228-7283">082-228-7283 ( Davao )</a>
-                  <a href="tel:053-830-8878">053-830-8878 ( TACLOBAN )</a>
+
                 </li>
 
                 <li>
                   <h6>Email:</h6>
-                  <a href="mailto:info@platinumbrothers.com">
-                    info@platinumbrothers.com
+                  <a href="mailto:info@platinumbrothers.com.ph">
+                    info@platinumbrothers.com.ph
                   </a>
                 </li>
               </ul>

@@ -43,7 +43,7 @@ export default function AboutSection() {
             </div>
             <div className="col-lg-6 col-12 p-2">
               <div className="about_img">
-                <img src="/images/about.jpg" alt="about" />
+                <img src="/images/about.png" alt="about" />
               </div>
             </div>
           </div>
