@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import PageHeader from "../ui/layout/PageHeader";
 import Pagination from "../ui/layout/Pagination";
 import useGetJobs from "../hooks/useGetJobs";
+import JobCard from "./../ui/layout/JobCard";
 
 export default function JobSeekers() {
+  const { data: jobs } = useGetJobs();
 
-  const {data: jobs , isLoading} = useGetJobs();
-
-  
+  console.log(jobs);
 
   return (
     <>
@@ -103,157 +103,11 @@ export default function JobSeekers() {
       <section className="resumes">
         <div className="contianer">
           <div className="row justify-content-center">
-            <div className="col-lg-9 col-12 p-2 mb-2">
-              <div className="cv">
-                <div className="img">
-                  <img src="/images/cv1.jpg" alt="cv1" />
-                </div>
-                <div className="content">
-                  <div className="head">
-                    <h3>Accounting Assistant</h3>
-                    <h6>
-                      <i className="fa-light fa-location-dot"></i> Maldives
-                    </h6>
-
-                    <div className="date">
-                      <b>6</b>
-                      <b>SEP</b>
-                      <b>2024</b>
-                    </div>
-                  </div>
-
-                  <div className="text">
-                    <p>
-                      Minimum of 2 years working experience is required for this
-                      position. Applicants must be 25 to 45 years old.
-                    </p>
-                    <p>
-                      Email your CV to contact@Platinumbrothers.com.ph with
-                      Accounting Assistant as subject heading to apply.
-                    </p>
-                  </div>
-
-                  <div className="actions">
-                    <Link>Apply Now</Link>
-                    <Link to="/jobseekers/1">More</Link>
-                  </div>
-                </div>
+            {jobs?.map((job) => (
+              <div className="col-lg-9 col-12 p-2 mb-2" key={job.id}>
+                <JobCard job={job} />
               </div>
-            </div>
-            <div className="col-lg-9 col-12 p-2 mb-2">
-              <div className="cv">
-                <div className="img">
-                  <img src="/images/cv2.jpg" alt="cv1" />
-                </div>
-                <div className="content">
-                  <div className="head">
-                    <h3>Staff Nurses</h3>
-                    <h6>
-                      <i className="fa-light fa-location-dot"></i> KINGDOM OF
-                      SAUDI ARABIA
-                    </h6>
-
-                    <div className="date">
-                      <b>6</b>
-                      <b>SEP</b>
-                      <b>2024</b>
-                    </div>
-                  </div>
-
-                  <div className="text">
-                    <p>
-                      At least 3 years post-license experience as staff nurse in
-                      an health care facility.
-                    </p>
-                    <p>
-                      Email your CV to contact@Platinumbrothers.com.ph with
-                      Staff Nurse as subject heading to apply.
-                    </p>
-                  </div>
-
-                  <div className="actions">
-                    <Link>Apply Now</Link>
-                    <Link to="/jobseekers/1">More</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-9 col-12 p-2 mb-2">
-              <div className="cv">
-                <div className="img">
-                  <img src="/images/cv3.jpg" alt="cv1" />
-                </div>
-                <div className="content">
-                  <div className="head">
-                    <h3>Domestic Helper</h3>
-                    <h6>
-                      <i className="fa-light fa-location-dot"></i> KINGDOM OF
-                      SAUDI ARABIA
-                    </h6>
-
-                    <div className="date">
-                      <b>6</b>
-                      <b>SEP</b>
-                      <b>2024</b>
-                    </div>
-                  </div>
-
-                  <div className="text">
-                    <p>
-                      At least 2 years experience as domestic healthcare in any
-                      Filipino household.
-                    </p>
-                    <p>
-                      Email your CV to contact@Platinumbrothers.com.ph with
-                      Accounting Assistant as subject heading to apply.
-                    </p>
-                  </div>
-
-                  <div className="actions">
-                    <Link>Apply Now</Link>
-                    <Link to="/jobseekers/1">More</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-9 col-12 p-2 mb-2">
-              <div className="cv">
-                <div className="img">
-                  <img src="/images/cv4.jpg" alt="cv1" />
-                </div>
-                <div className="content">
-                  <div className="head">
-                    <h3>Construction Worker</h3>
-                    <h6>
-                      <i className="fa-light fa-location-dot"></i> KINGDOM OF
-                      SAUDI ARABIA
-                    </h6>
-
-                    <div className="date">
-                      <b>6</b>
-                      <b>SEP</b>
-                      <b>2024</b>
-                    </div>
-                  </div>
-
-                  <div className="text">
-                    <p>
-                      At least 2 years experience as domestic healthcare in any
-                      Filipino household.
-                    </p>
-                    <p>
-                      Email your CV to contact@Platinumbrothers.com.ph with
-                      Accounting Assistant as subject heading to apply.
-                    </p>
-                  </div>
-
-                  <div className="actions">
-                    <Link>Apply Now</Link>
-                    <Link to="/jobseekers/1">More</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
             <div className="col-12 p-2">
               <Pagination />
             </div>

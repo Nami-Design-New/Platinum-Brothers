@@ -22,7 +22,7 @@ const router = [
     element: <JobSeekers />,
   },
   {
-    path: "/jobseekers/1",
+    path: "/jobseekers/:id",
     element: <JobSeekersDetails />,
   },
 ];

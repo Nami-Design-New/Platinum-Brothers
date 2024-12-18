@@ -2,7 +2,7 @@
 body {
   position: relative;
   overflow-x: hidden;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 
   @import "./header";
   @import "./home";
