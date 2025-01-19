@@ -1,12 +1,69 @@
-import { useState } from "react";
-import PageHeader from "./../ui/layout/PageHeader";
+import { useState, useEffect } from "react";
+import axiosService from "../hooks/axiosService";
+import PageHeader from "../ui/layout/PageHeader";
 import Modal from "react-bootstrap/Modal";
 
 export default function Contact() {
   const [show, setShow] = useState(false);
+  const [offices, setOffices] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+// Form state
+const [formData, setFormData] = useState({
+  firstName: "",
+  lastName: "",
+  companyName: "",
+  position: "",
+  contactNumber: "",
+  email: "",
+  subject: "",
+  message: "",
+});
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+  setFormData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axiosService.post("/api/contact-form", formData); 
+    alert("Your inquiry has been submitted successfully!"); 
+    setShow(false); 
+  } catch (err) {
+    setError(err.message);
+    alert("There was an error submitting your inquiry.");
+  }
+};
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosService.get("/api/offices"); 
+        setOffices(response.data.data); 
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []); 
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <>
@@ -27,13 +84,12 @@ export default function Contact() {
               <div>
                 <h4>ARE YOU AN EMPLOYER?</h4>
                 <p>
-                  Click the button on the right for the employer form ,instead
+                  Click the button on the right for the employer form, instead
                   of the employee form below.
                 </p>
               </div>
 
               <button onClick={handleShow}>
-                {" "}
                 <img src="/images/mssge.svg" alt="mssge" /> contact us
               </button>
             </div>
@@ -41,7 +97,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* modal*/}
+      {/* Modal */}
       <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header
           closeButton
@@ -51,8 +107,8 @@ export default function Contact() {
             Online inquiry (Employers Only)
           </Modal.Title>
           <p style={{ color: "#777", padding: "0", margin: "0" }}>
-            To Make an inquiry , Please fill out The Form below and we Will get
-            back to you as soon as possible
+            To make an inquiry, please fill out the form below, and we will get
+            back to you as soon as possible.
           </p>
         </Modal.Header>
         <Modal.Body>
@@ -61,37 +117,88 @@ export default function Contact() {
               <div className="row justify-content-center">
                 <div className="col-lg-12 col-12 p-2">
                   <h3>CONTACT FORM</h3>
-                  <form className="row">
+                  <form className="row" onSubmit={handleSubmit}>
                     <div className="col-lg-6 col-12 p-2">
-                      <input type="text" placeholder="First Name" />
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        placeholder="First Name"
+                        required
+                      />
                     </div>
-
                     <div className="col-lg-6 col-12 p-2">
-                      <input type="text" placeholder="Name of Company" />
+                      <input
+                        type="text"
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleInputChange}
+                        placeholder="Name of Company"
+                        required
+                      />
                     </div>
                     <div className="col-lg-6 col-12 p-2">
-                      <input type="text" placeholder="Position" />
+                      <input
+                        type="text"
+                        name="position"
+                        value={formData.position}
+                        onChange={handleInputChange}
+                        placeholder="Position"
+                        required
+                      />
                     </div>
-
                     <div className="col-lg-6 col-12 p-2">
-                      <input type="text" placeholder="Last Name" />
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        placeholder="Last Name"
+                        required
+                      />
                     </div>
-
                     <div className="col-lg-6 col-12 p-2">
-                      <input type="tel" placeholder="Contact Number" />
+                      <input
+                        type="tel"
+                        name="contactNumber"
+                        value={formData.contactNumber}
+                        onChange={handleInputChange}
+                        placeholder="Contact Number"
+                        required
+                      />
                     </div>
-
                     <div className="col-lg-6 col-12 p-2">
-                      <input type="email" placeholder="Email Address" />
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="Email Address"
+                        required
+                      />
                     </div>
                     <div className="col-12 p-2">
-                      <input type="subject" placeholder="Subject" />
+                      <input
+                        type="text"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        placeholder="Subject"
+                        required
+                      />
                     </div>
                     <div className="col-12 p-2">
-                      <textarea placeholder="Message"></textarea>
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Message"
+                        required
+                      ></textarea>
                     </div>
                     <div className="col-12 p-2 mt-3 d-flex justify-content-center">
-                      <button>Submit</button>
+                      <button type="submit">Submit</button>
                     </div>
                   </form>
                 </div>
@@ -101,358 +208,60 @@ export default function Contact() {
         </Modal.Body>
       </Modal>
 
-      <section className="contact_form">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10 col-12 p-2">
-              <h3>CONTACT FORM</h3>
-              <form className="row">
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="First Name" />
-                </div>
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="text" placeholder="Last Name" />
-                </div>
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="tel" placeholder="Contact Number" />
-                </div>
-                <div className="col-lg-6 col-12 p-2">
-                  <input type="email" placeholder="Email Address" />
-                </div>
-                <div className="col-12 p-2">
-                  <input type="subject" placeholder="Subject" />
-                </div>
-                <div className="col-12 p-2">
-                  <textarea placeholder="Message"></textarea>
-                </div>
-                <div className="col-12 p-2 mt-3 d-flex justify-content-center">
-                  <button>Submit</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* Offices Section */}
       <section className="offices">
-        <div className="container">
-          <h2>OUR OFFICES</h2>
-          <div className="row">
-            <div className="col-lg-6 col-12 p-2">
-              <iframe
+  <div className="container">
+    <h2>OUR OFFICES</h2>
+    {loading ? (
+      <p>Loading...</p>
+    ) : error ? (
+      <p>{error}</p>
+    ) : (
+      offices.map((office, index) => (
+        <div key={index} className="row">
+          <div className="col-lg-6 col-12 p-2">
+          {office.image ? (
+              <img src={office.image} alt="Office" width="100%" height="320" />
+            ) : (
+              <p>No image available</p>
+            )}
+          {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.471903489129!2d120.98660252537064!3d14.572165277773141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca2bba85a83f%3A0xf7a922b187c3686d!2zMTY4MCBNYWJpbmkgU3QsIE1hbGF0ZSwgTWFuaWxhLCAxMDA0IE1ldHJvIE1hbmlsYSwg2KfZhNmB2YTYqNmK2YY!5e0!3m2!1sar!2seg!4v1732628075620!5m2!1sar!2seg"
                 width="100%"
                 height="320"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-            <div className="col-lg-6 col-12 p-2">
-              <div className="content">
-                <h3>MANILA</h3>
-                <ul>
-                  <li>
-                    <i className="fa-light fa-map-pin"></i>
-                    BBW J-02 C286 TO C290 BLUE BAY WALK METRO PARK EDSA EXTN.
-                    COR. PRES. DIOSDADO MACAPAGAL BLVD. PASAY CITY.
-                  </li>
-                  <li>
-                    <i className="fa-light fa-phone"></i>
-                    <a href="tel:028-554-0408">028-288-6487</a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-envelope"></i>
-                    <a href="mailto:info@platinumbrothers.com.ph">
-                      info@platinumbrothers.com.ph
-                    </a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 6 PM
-                  </li>
-                </ul>
-              </div>
-            </div>
+              /> */}
           </div>
-
-          <div className="row">
-            <div className="col-lg-6 col-12 p-2">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1962.6947945717081!2d123.89434156155885!3d10.310673236351239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999502ae05f1b%3A0x79b5c3e420531d73!2sMcDonald&#39;s%20Fuente%20Osmena!5e0!3m2!1sar!2seg!4v1732628830448!5m2!1sar!2seg"
-                width="100%"
-                height="320"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            <div className="col-lg-6 col-12 p-2">
-              <div className="content">
-                <h3>CEBU</h3>
-                <ul>
-                  <li>
-                    <i className="fa-light fa-map-pin"></i>
-                    ROOM314 LIM TIANHE BLDG. FUENTEOSMEÑA CEBUCITY.
-                  </li>
-                  <li>
-                    <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">032-253-0098</a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-envelope"></i>
-                    <a href="mailto:info@platinumbrothers.com.ph">
-                      info@platinumbrothers.com.ph
-                    </a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 7 PM
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-6 col-12 p-2">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.3379893500205!2d125.61295442545784!3d7.086760916362625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96da816fd0079%3A0xadab68f719dccf61!2sY.%20L%20Finance%20Building!5e0!3m2!1sar!2seg!4v1732628960221!5m2!1sar!2seg"
-                width="100%"
-                height="320"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            <div className="col-lg-6 col-12 p-2">
-              <div className="content">
-                <h3>DAVO</h3>
-                <ul>
-                  <li>
-                    <i className="fa-light fa-map-pin"></i>
-                    2ND FLR YL FINANCE BLDG. JP LAUREL AVE. BAJADA DAVAO CITY.
-                  </li>
-                  <li>
-                    <i className="fa-light fa-phone"></i>
-                    <a href="tel:082-228-7283">2287-283</a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-envelope"></i>
-                    <a href="mailto:info@platinumbrothers.com.ph">
-                      info@platinumbrothers.com.ph
-                    </a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 7 PM
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-6 col-12 p-2">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1962.6947945717081!2d123.89434156155885!3d10.310673236351239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999502ae05f1b%3A0x79b5c3e420531d73!2sMcDonald&#39;s%20Fuente%20Osmena!5e0!3m2!1sar!2seg!4v1732628830448!5m2!1sar!2seg"
-                width="100%"
-                height="320"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            <div className="col-lg-6 col-12 p-2">
-              <div className="content">
-                <h3>ILOILO</h3>
-                <ul>
-                  <li>
-                    <i className="fa-light fa-map-pin"></i>
-                    UNIT B. 2ND FLOOR GRANDE J.E BUILDING BRGY. IBARRA RIZAL
-                    STREET ILOILO CITY.
-                  </li>
-
-                  <li>
-                    <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">N/A</a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-envelope"></i>
-                    <a href="mailto:info@platinumbrothers.com.ph">
-                      info@platinumbrothers.com.ph
-                    </a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 7 PM
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-6 col-12 p-2">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1962.6947945717081!2d123.89434156155885!3d10.310673236351239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999502ae05f1b%3A0x79b5c3e420531d73!2sMcDonald&#39;s%20Fuente%20Osmena!5e0!3m2!1sar!2seg!4v1732628830448!5m2!1sar!2seg"
-                width="100%"
-                height="320"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            <div className="col-lg-6 col-12 p-2">
-              <div className="content">
-                <h3>TACLOBAN</h3>
-                <ul>
-                  <li>
-                    <i className="fa-light fa-map-pin"></i>
-                    LOT 17 BLK 1 BRGY. 73 PHHC NULA - TULA TACLOBAN CITY.
-                  </li>
-
-                  <li>
-                    <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">053-830-8878</a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-envelope"></i>
-                    <a href="mailto:info@platinumbrothers.com.ph">
-                      info@platinumbrothers.com.ph
-                    </a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 7 PM
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-6 col-12 p-2">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1962.6947945717081!2d123.89434156155885!3d10.310673236351239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999502ae05f1b%3A0x79b5c3e420531d73!2sMcDonald&#39;s%20Fuente%20Osmena!5e0!3m2!1sar!2seg!4v1732628830448!5m2!1sar!2seg"
-                width="100%"
-                height="320"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            <div className="col-lg-6 col-12 p-2">
-              <div className="content">
-                <h3>CABANATUAN</h3>
-                <ul>
-                  <li>
-                    <i className="fa-light fa-map-pin"></i>
-                    JUSTO BLDG. LOT 1689 QUEZON DISTRICT MABINI ST.
-                    BRGY.SANGITAN CABANATUAN CITY.
-                  </li>
-
-                  <li>
-                    <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">N/A</a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-envelope"></i>
-                    <a href="mailto:info@platinumbrothers.com.ph">
-                      info@platinumbrothers.com.ph
-                    </a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 7 PM
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-6 col-12 p-2">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1962.6947945717081!2d123.89434156155885!3d10.310673236351239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999502ae05f1b%3A0x79b5c3e420531d73!2sMcDonald&#39;s%20Fuente%20Osmena!5e0!3m2!1sar!2seg!4v1732628830448!5m2!1sar!2seg"
-                width="100%"
-                height="320"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            <div className="col-lg-6 col-12 p-2">
-              <div className="content">
-                <h3>CAGAYAN DE ORO</h3>
-                <ul>
-                  <li>
-                    <i className="fa-light fa-map-pin"></i>
-                    RM-303 PALACIO BUILDING 3RD FLOOR YACAPIN-TIANO STREETS,
-                    CAGAYAN DE ORO CITY.
-                  </li>
-
-                  <li>
-                    <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">N/A</a>
-                  </li>
-
-                  <li>
-                    <i className="fa-light fa-envelope"></i>
-                    <a href="mailto:info@platinumbrothers.com.ph">
-                      info@platinumbrothers.com.ph
-                    </a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 7 PM
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-6 col-12 p-2">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1962.6947945717081!2d123.89434156155885!3d10.310673236351239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999502ae05f1b%3A0x79b5c3e420531d73!2sMcDonald&#39;s%20Fuente%20Osmena!5e0!3m2!1sar!2seg!4v1732628830448!5m2!1sar!2seg"
-                width="100%"
-                height="320"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-
-            <div className="col-lg-6 col-12 p-2">
-              <div className="content">
-                <h3>BUTUAN</h3>
-                <ul>
-                  <li>
-                    <i className="fa-light fa-map-pin"></i>
-                    2/F LLIDO BLDG. OCHOA AVE. PALM STREET BRGY. LIMAHA, BUTUAN
-                    CITY.
-                  </li>
-
-                  <li>
-                    <i className="fa-light fa-phone"></i>
-                    <a href="tel:032-253-0098">N/A</a>
-                  </li>
-
-                  <li>
-                    <i className="fa-light fa-envelope"></i>
-                    <a href="mailto:info@platinumbrothers.com.ph">
-                      info@platinumbrothers.com.ph
-                    </a>
-                  </li>
-                  <li>
-                    <i className="fa-light fa-clock"></i> 9 AM - 7 PM
-                  </li>
-                </ul>
-              </div>
+          <div className="col-lg-6 col-12 p-2">
+            <div className="content">
+              <h3>{office.title}</h3>
+              <ul>
+                <li>
+                  <i className="fa-light fa-map-pin"></i>
+                  {office.address}
+                </li>
+                <li>
+                  <i className="fa-light fa-phone"></i>
+                  <a href={`tel:${office.phone}`}>{office.phone}</a>
+                </li>
+                <li>
+                  <i className="fa-light fa-envelope"></i>
+                  <a href={`mailto:${office.email}`}>{office.email}</a>
+                </li>
+                <li>
+                  <i className="fa-light fa-clock"></i> {office.from_time} - {office.to_time}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
+      ))
+    )}
+  </div>
+</section>
+
     </>
   );
 }

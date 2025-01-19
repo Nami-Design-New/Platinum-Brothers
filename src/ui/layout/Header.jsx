@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import axiosService from "../../hooks/axiosService";
 
 export default function Header() {
   const [isOPen, setIsOpen] = useState(false);
+  const [cities, setCities] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -11,25 +15,48 @@ export default function Header() {
     });
   }, []);
 
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const response = await axiosService.get("/api/slider-cities");
+        const citiesData = response.data?.data?.cities;
+
+        if (Array.isArray(citiesData)) {
+          setCities(citiesData);
+        }
+
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchCities();
+  }, []);
+
   return (
     <header>
       <div className="top_bar">
-        <ul>
-          <li>MANILA</li>
-          <li>CEBU</li>
-          <li>DAVAO</li>
-          <li>ILOILO</li>
-          <li>CABANATUAN</li>
-          <li> BUTUAN</li>
-          <li>TACLOBAN</li>
-          <li>CAGAYAN DE ORO</li>
-        </ul>
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>Error: {error}</p>
+        ) : cities?.length > 0 ? (
+          <ul>
+            {cities.map((city, index) => (
+              <li key={index}>{city.title}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>No cities available</p>
+        )}
       </div>
 
       <div className="container">
         <nav>
           <Link to="/" className="logo">
-            <img src="/images/logo.svg" alt="" />
+            <img src="/images/logo.svg" alt="Logo" />
           </Link>
 
           <div className={`nav_links ${isOPen ? "open" : ""}`}>
@@ -38,7 +65,7 @@ export default function Header() {
               className="nav_link logo"
               onClick={() => setIsOpen(false)}
             >
-              <img src="/images/logo.svg" alt="" />
+              <img src="/images/logo.svg" alt="Logo" />
             </NavLink>
             <NavLink
               to="/"

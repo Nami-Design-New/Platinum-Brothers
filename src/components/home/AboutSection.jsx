@@ -1,4 +1,23 @@
+import { useEffect, useState } from "react";
+import axiosService from "../../hooks/axiosService"; 
+
 export default function AboutSection() {
+  const [aboutData, setAboutData] = useState(null); 
+  const [error, setError] = useState(null); 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosService.get("/api/homeSections"); 
+        setAboutData(response.data.data); 
+      } catch (err) {
+        setError(err.message); 
+      }
+    };
+
+    fetchData();
+  }, []); 
+
   return (
     <>
       <section className="about_section">
@@ -15,7 +34,7 @@ export default function AboutSection() {
                   talent, contributing growth and success of business across
                   various sectors our dedication. To client satisfaction and our
                   candidates career advancement sets us apart as a preferred
-                  choice for manpower
+                  choice for manpower.
                 </p>
                 <br />
                 <p>
@@ -29,15 +48,7 @@ export default function AboutSection() {
               <div className="content">
                 <h2>Who We Are?</h2>
                 <p>
-                  Platinum Brothers International Manpower Agency Inc. (PBIMAI)
-                  is one of the most renowned overseas employment agencies in
-                  the Philippines, which is also authentic, and license approved
-                  by the Ministry of labor and Employment, Government of
-                  Philippines. Over the years of commitment to quality, we have
-                  consistently been producing significant amount of successful
-                  deployment to satisfy our clients worldwide. We have
-                  specialized recruitment and deployment teams for the following
-                  sectors:
+                  {error ? "Error loading data" : aboutData ? aboutData.who_are_we : "Loading..."}
                 </p>
               </div>
             </div>

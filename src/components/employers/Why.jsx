@@ -1,44 +1,49 @@
+import React, { useState, useEffect } from "react";
+import axiosService from "../../hooks/axiosService"; 
+
 export default function Why() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosService.get("/api/employee-page"); 
+        setData(response.data.data); 
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  const { second_section } = data;
+
   return (
     <section className="whyus">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8 col-12 p-2">
             <h5>Why</h5>
-            <h2>Platinum Brothers International Manpower Agency Inc? </h2>
+            <h2>{second_section.title}</h2>
             <ul>
-              <li>
-                <img src="/images/check.svg" alt="check" /> We have an
-                outstanding record of success in filling positions for a diverse
-                and growing client base.
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" /> We adhere to a
-                strict code of ethics and offer absolute confidentiality to both
-                clients and candidates alike.
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" />
-                We believe in offering good value for money and expedient
-                delivery of our services in a most timely and effective manner.
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" /> We have an We are
-                proud of the quality and integrity of our consulting and support
-                staff, all of whom have in depth experience in the recruitment
-                and HR field.
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" />
-                With 18 recruitment centers throughout the Philippines, and
-                offices in Hong Kong, Macau, the Middle East, Japan & China we
-                are able to aggregate the best staff for the job.
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" />
-                Platinum Brothers International Manpower Agency Inc. has
-                deployed thousands of candidates to Kingdom of Saudi Arabia.
-              </li>
+              {second_section.options.map((option, index) => (
+                <li key={index}>
+                  <img src="/images/check.svg" alt="check" /> {option}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
