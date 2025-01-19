@@ -1,46 +1,54 @@
+import React, { useState, useEffect } from "react";
+import axiosService from "../../hooks/axiosService"; 
+
 export default function Methods() {
+  const [data, setData] = useState(null); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosService.get("/api/employee-page"); 
+        setData(response.data.data); 
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  const { recruitments } = data;
+
   return (
     <section className="whyus methods" >
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8 col-12 p-2">
             <h5>OUR</h5>
-            <h2 className="mb-3">Recruitment Methods: </h2>
+            <h2>{recruitments.title}</h2>
+
             <h6>
-              To ensure a broad base of quality candidates, we recruit
-              jobseekers through:
+            {recruitments.text}
             </h6>
             <ul>
-              <li>
-                <img src="/images/check.svg" alt="check" /> We have an
-                Advertisements on radio, TV, leading newspapers & specialized
-                media
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" /> We adhere to a An
-                extensive and active database
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" />
-                Online job boards and social media
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" /> We have an We are
-                Headhunting
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" />
-                Job fairs
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" />
-                Partnerships with government & educational institutions
-              </li>
-              <li>
-                <img src="/images/check.svg" alt="check" />
-                Other proprietary methods
-              </li>
-            </ul>
+                {recruitments.options.map((option, index) => (
+                  <li key={index}>
+                    <img src="/images/check.svg" alt="check" /> {option}
+                  </li>
+                ))}
+              </ul>
           </div>
         </div>
       </div>
