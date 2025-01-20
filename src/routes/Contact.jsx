@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axiosService from "../hooks/axiosService";
 import PageHeader from "../ui/layout/PageHeader";
 import Modal from "react-bootstrap/Modal";
 import { toast } from "react-toastify";
+import useGetOffices from "../hooks/useGetOffices";
 
 export default function Contact() {
   const [show, setShow] = useState(false);
-  const [offices, setOffices] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { data, isLoading } = useGetOffices();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -42,29 +43,6 @@ export default function Contact() {
       toast.error("There was an error submitting your inquiry.");
     }
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosService.get("/api/offices");
-        setOffices(response.data.data);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
 
   return (
     <>
@@ -209,29 +187,118 @@ export default function Contact() {
         </Modal.Body>
       </Modal>
 
+      <section className="contact_form">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-10 col-12 p-2">
+              <h3>CONTACT FORM</h3>
+              <form className="row" onSubmit={handleSubmit}>
+                <div className="col-lg-6 col-12 p-2">
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    placeholder="First Name"
+                    required
+                  />
+                </div>
+                <div className="col-lg-6 col-12 p-2">
+                  <input
+                    type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    placeholder="Name of Company"
+                    required
+                  />
+                </div>
+                <div className="col-lg-6 col-12 p-2">
+                  <input
+                    type="text"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleInputChange}
+                    placeholder="Position"
+                    required
+                  />
+                </div>
+                <div className="col-lg-6 col-12 p-2">
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    placeholder="Last Name"
+                    required
+                  />
+                </div>
+                <div className="col-lg-6 col-12 p-2">
+                  <input
+                    type="tel"
+                    name="contactNumber"
+                    value={formData.contactNumber}
+                    onChange={handleInputChange}
+                    placeholder="Contact Number"
+                    required
+                  />
+                </div>
+                <div className="col-lg-6 col-12 p-2">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Email Address"
+                    required
+                  />
+                </div>
+                <div className="col-12 p-2">
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    placeholder="Subject"
+                    required
+                  />
+                </div>
+                <div className="col-12 p-2">
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Message"
+                    required
+                  ></textarea>
+                </div>
+                <div className="col-12 p-2 mt-3 d-flex justify-content-center">
+                  <button type="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Offices Section */}
       <section className="offices">
         <div className="container">
           <h2>OUR OFFICES</h2>
-          {loading ? (
-            <p>Loading...</p>
-          ) : error ? (
-            <p>{error}</p>
-          ) : (
-            offices.map((office, index) => (
-              <div key={index} className="row">
-                <div className="col-lg-6 col-12 p-2">
-                  {office.image ? (
-                    <img
-                      src={office.image}
-                      alt="Office"
-                      width="100%"
-                      height="320"
-                    />
-                  ) : (
-                    <p>No image available</p>
-                  )}
-                  {/* <iframe
+          {data?.map((office, index) => (
+            <div key={index} className="row">
+              <div className="col-lg-6 col-12 p-2">
+                {office?.image ? (
+                  <img
+                    src={data?.office?.image}
+                    alt="Office"
+                    width="100%"
+                    height="320"
+                  />
+                ) : (
+                  <p>No image available</p>
+                )}
+                {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.471903489129!2d120.98660252537064!3d14.572165277773141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca2bba85a83f%3A0xf7a922b187c3686d!2zMTY4MCBNYWJpbmkgU3QsIE1hbGF0ZSwgTWFuaWxhLCAxMDA0IE1ldHJvIE1hbmlsYSwg2KfZhNmB2YTYqNmK2YY!5e0!3m2!1sar!2seg!4v1732628075620!5m2!1sar!2seg"
                 width="100%"
                 height="320"
@@ -239,33 +306,32 @@ export default function Contact() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               /> */}
-                </div>
-                <div className="col-lg-6 col-12 p-2">
-                  <div className="content">
-                    <h3>{office.title}</h3>
-                    <ul>
-                      <li>
-                        <i className="fa-light fa-map-pin"></i>
-                        {office.address}
-                      </li>
-                      <li>
-                        <i className="fa-light fa-phone"></i>
-                        <a href={`tel:${office.phone}`}>{office.phone}</a>
-                      </li>
-                      <li>
-                        <i className="fa-light fa-envelope"></i>
-                        <a href={`mailto:${office.email}`}>{office.email}</a>
-                      </li>
-                      <li>
-                        <i className="fa-light fa-clock"></i> {office.from_time}{" "}
-                        - {office.to_time}
-                      </li>
-                    </ul>
-                  </div>
+              </div>
+              <div className="col-lg-6 col-12 p-2">
+                <div className="content">
+                  <h3>{office?.title}</h3>
+                  <ul>
+                    <li>
+                      <i className="fa-light fa-map-pin"></i>
+                      {office?.address}
+                    </li>
+                    <li>
+                      <i className="fa-light fa-phone"></i>
+                      <a href={`tel:${office?.phone}`}>{office?.phone}</a>
+                    </li>
+                    <li>
+                      <i className="fa-light fa-envelope"></i>
+                      <a href={`mailto:${office?.email}`}>{office?.email}</a>
+                    </li>
+                    <li>
+                      <i className="fa-light fa-clock"></i> {office?.from_time}{" "}
+                      - {office?.to_time}
+                    </li>
+                  </ul>
                 </div>
               </div>
-            ))
-          )}
+            </div>
+          ))}
         </div>
       </section>
     </>

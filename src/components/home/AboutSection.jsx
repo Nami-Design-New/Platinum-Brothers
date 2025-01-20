@@ -1,22 +1,8 @@
 import { useEffect, useState } from "react";
-import axiosService from "../../hooks/axiosService"; 
-
+import useGetHome from "../../hooks/useGetHome";
+ 
 export default function AboutSection() {
-  const [aboutData, setAboutData] = useState(null); 
-  const [error, setError] = useState(null); 
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosService.get("/api/homeSections"); 
-        setAboutData(response.data.data); 
-      } catch (err) {
-        setError(err.message); 
-      }
-    };
-
-    fetchData();
-  }, []); 
+  const { data, isLoading } = useGetHome();
 
   return (
     <>
@@ -48,7 +34,7 @@ export default function AboutSection() {
               <div className="content">
                 <h2>Who We Are?</h2>
                 <p>
-                  {error ? "Error loading data" : aboutData ? aboutData.who_are_we : "Loading..."}
+                  {data?.who_are_we}
                 </p>
               </div>
             </div>
