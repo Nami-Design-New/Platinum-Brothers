@@ -2,51 +2,52 @@ import { useState, useEffect } from "react";
 import axiosService from "../hooks/axiosService";
 import PageHeader from "../ui/layout/PageHeader";
 import Modal from "react-bootstrap/Modal";
+import { toast } from "react-toastify";
 
 export default function Contact() {
   const [show, setShow] = useState(false);
-  const [offices, setOffices] = useState([]); 
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null); 
+  const [offices, setOffices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-// Form state
-const [formData, setFormData] = useState({
-  firstName: "",
-  lastName: "",
-  companyName: "",
-  position: "",
-  contactNumber: "",
-  email: "",
-  subject: "",
-  message: "",
-});
-const handleInputChange = (e) => {
-  const { name, value } = e.target;
-  setFormData((prev) => ({
-    ...prev,
-    [name]: value,
-  }));
-};
+  // Form state
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    companyName: "",
+    position: "",
+    contactNumber: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const response = await axiosService.post("/api/contact-form", formData); 
-    alert("Your inquiry has been submitted successfully!"); 
-    setShow(false); 
-  } catch (err) {
-    setError(err.message);
-    alert("There was an error submitting your inquiry.");
-  }
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axiosService.post("/api/contact-form", formData);
+      toast.success("Your inquiry has been submitted successfully!");
+      setShow(false);
+    } catch (err) {
+      setError(err.message);
+      toast.error("There was an error submitting your inquiry.");
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axiosService.get("/api/offices"); 
-        setOffices(response.data.data); 
+        const response = await axiosService.get("/api/offices");
+        setOffices(response.data.data);
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -55,7 +56,7 @@ const handleSubmit = async (e) => {
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -210,22 +211,27 @@ const handleSubmit = async (e) => {
 
       {/* Offices Section */}
       <section className="offices">
-  <div className="container">
-    <h2>OUR OFFICES</h2>
-    {loading ? (
-      <p>Loading...</p>
-    ) : error ? (
-      <p>{error}</p>
-    ) : (
-      offices.map((office, index) => (
-        <div key={index} className="row">
-          <div className="col-lg-6 col-12 p-2">
-          {office.image ? (
-              <img src={office.image} alt="Office" width="100%" height="320" />
-            ) : (
-              <p>No image available</p>
-            )}
-          {/* <iframe
+        <div className="container">
+          <h2>OUR OFFICES</h2>
+          {loading ? (
+            <p>Loading...</p>
+          ) : error ? (
+            <p>{error}</p>
+          ) : (
+            offices.map((office, index) => (
+              <div key={index} className="row">
+                <div className="col-lg-6 col-12 p-2">
+                  {office.image ? (
+                    <img
+                      src={office.image}
+                      alt="Office"
+                      width="100%"
+                      height="320"
+                    />
+                  ) : (
+                    <p>No image available</p>
+                  )}
+                  {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.471903489129!2d120.98660252537064!3d14.572165277773141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca2bba85a83f%3A0xf7a922b187c3686d!2zMTY4MCBNYWJpbmkgU3QsIE1hbGF0ZSwgTWFuaWxhLCAxMDA0IE1ldHJvIE1hbmlsYSwg2KfZhNmB2YTYqNmK2YY!5e0!3m2!1sar!2seg!4v1732628075620!5m2!1sar!2seg"
                 width="100%"
                 height="320"
@@ -233,35 +239,35 @@ const handleSubmit = async (e) => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               /> */}
-          </div>
-          <div className="col-lg-6 col-12 p-2">
-            <div className="content">
-              <h3>{office.title}</h3>
-              <ul>
-                <li>
-                  <i className="fa-light fa-map-pin"></i>
-                  {office.address}
-                </li>
-                <li>
-                  <i className="fa-light fa-phone"></i>
-                  <a href={`tel:${office.phone}`}>{office.phone}</a>
-                </li>
-                <li>
-                  <i className="fa-light fa-envelope"></i>
-                  <a href={`mailto:${office.email}`}>{office.email}</a>
-                </li>
-                <li>
-                  <i className="fa-light fa-clock"></i> {office.from_time} - {office.to_time}
-                </li>
-              </ul>
-            </div>
-          </div>
+                </div>
+                <div className="col-lg-6 col-12 p-2">
+                  <div className="content">
+                    <h3>{office.title}</h3>
+                    <ul>
+                      <li>
+                        <i className="fa-light fa-map-pin"></i>
+                        {office.address}
+                      </li>
+                      <li>
+                        <i className="fa-light fa-phone"></i>
+                        <a href={`tel:${office.phone}`}>{office.phone}</a>
+                      </li>
+                      <li>
+                        <i className="fa-light fa-envelope"></i>
+                        <a href={`mailto:${office.email}`}>{office.email}</a>
+                      </li>
+                      <li>
+                        <i className="fa-light fa-clock"></i> {office.from_time}{" "}
+                        - {office.to_time}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
-      ))
-    )}
-  </div>
-</section>
-
+      </section>
     </>
   );
 }

@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import axiosService from "../../hooks/axiosService";
+import useGetCities from "../../hooks/useGetCities";
 
 export default function Header() {
   const [isOPen, setIsOpen] = useState(false);
-  const [cities, setCities] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -15,43 +12,19 @@ export default function Header() {
     });
   }, []);
 
-  useEffect(() => {
-    const fetchCities = async () => {
-      try {
-        const response = await axiosService.get("/api/slider-cities");
-        const citiesData = response.data?.data?.cities;
-
-        if (Array.isArray(citiesData)) {
-          setCities(citiesData);
-        }
-
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-
-    fetchCities();
-  }, []);
+  const { data, isLoading, error } = useGetCities();
 
   return (
     <header>
-      <div className="top_bar">
-        {loading ? (
-          <p>Loading...</p>
-        ) : error ? (
-          <p>Error: {error}</p>
-        ) : cities?.length > 0 ? (
+      {data?.cities?.length > 0 && (
+        <div className="top_bar">
           <ul>
-            {cities.map((city, index) => (
+            {data?.cities?.map((city, index) => (
               <li key={index}>{city.title}</li>
             ))}
           </ul>
-        ) : (
-          <p>No cities available</p>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="container">
         <nav>
