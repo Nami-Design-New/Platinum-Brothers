@@ -1,35 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Nav, Tab } from "react-bootstrap";
-import axiosService from "../../hooks/axiosService"; 
+import useGetHome from "../../hooks/useGetHome";
 
 export default function WhyChooseOFW() {
-  const [activeKey, setActiveKey] = useState("tab1");
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosService.get("/api/homeSections");
-        setData(response.data.data.why_us);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  const [activeKey, setActiveKey] = useState("tab0");
+  const { data, isLoading } = useGetHome();
 
   return (
     <section className="why_choose_ofw">
@@ -43,11 +18,9 @@ export default function WhyChooseOFW() {
             <div className="row mt-lg-5 mt-3 p-0">
               <div className="col-lg-4 p-2">
                 <Nav variant="pills" className="flex-column">
-                  {data.map((item, index) => (
-                    <Nav.Item key={item.title}>
-                      <Nav.Link eventKey={`tab${index}`}>
-                        {item.title}
-                      </Nav.Link>
+                  {data?.why_us.map((item, index) => (
+                    <Nav.Item key={`nav-${index}`}>
+                      <Nav.Link eventKey={`tab${index}`}>{item.title}</Nav.Link>
                     </Nav.Item>
                   ))}
                 </Nav>
@@ -55,8 +28,8 @@ export default function WhyChooseOFW() {
 
               <div className="col-lg-8 p-2 mt-lg-0 mt-3">
                 <Tab.Content>
-                  {data.map((item, index) => (
-                    <Tab.Pane eventKey={`tab${index}`} key={`pane${index}`}>
+                  {data?.why_us.map((item, index) => (
+                    <Tab.Pane eventKey={`tab${index}`} key={`pane-${index}`}>
                       <p>{item.text}</p>
                     </Tab.Pane>
                   ))}
