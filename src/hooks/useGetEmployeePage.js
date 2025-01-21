@@ -7,11 +7,12 @@ function useGetEmployee() {
     queryFn: async () => {
       try {
         const response = await axiosService.get("/api/employee-page");
-        return response.data?.data; 
+        return response.data?.data;
       } catch (err) {
         throw new Error("Error fetching employee data: " + err);
       }
     },
+
     retry: false,
     refetchOnWindowFocus: false,
     refetchOnMount: false,

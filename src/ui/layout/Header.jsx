@@ -12,7 +12,7 @@ export default function Header() {
     });
   }, []);
 
-  const { data, isLoading, error } = useGetCities();
+  const { data } = useGetCities();
 
   return (
     <header>

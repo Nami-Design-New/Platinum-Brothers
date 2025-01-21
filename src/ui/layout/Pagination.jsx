@@ -5,7 +5,7 @@ export default function Pagination({
   count,
   pageSize = 10,
   className,
-  param = "page"
+  param = "page",
 }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const lastPage = Math.ceil(count / pageSize);

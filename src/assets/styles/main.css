@@ -437,6 +437,7 @@ body .hero_section .slide .content .container {
 }
 body .hero_section .slide .content .container h1 {
   color: #fff;
+  width: min(600px, 100%);
 }
 body .hero_section .slide .content .container p {
   color: #fff;
@@ -1370,12 +1371,13 @@ body .contact_section .contact_text {
   line-height: 1.7;
 }
 body .contact_section .employeer_contact {
-  padding: 70px;
+  padding: 90px 70px;
   background-image: linear-gradient(rgba(0, 21, 137, 0.8509803922), rgba(0, 21, 137, 0.8509803922)), url("/images/contactemployer.jpg");
   background-size: cover;
   background-position: bottom;
   display: flex;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: space-between;
   gap: 20px;
   border-radius: 32px;
 }
@@ -1391,6 +1393,7 @@ body .contact_section .employeer_contact h4 {
 }
 body .contact_section .employeer_contact p {
   color: #fff;
+  margin: 0;
   font-size: 19px;
 }
 body .contact_section .employeer_contact button {
@@ -1398,7 +1401,9 @@ body .contact_section .employeer_contact button {
   width: fit-content;
   border: 0.5px solid #fff;
   color: #fff;
-  padding: 8px 30px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 12px 30px;
   border-radius: 10px;
 }
 body .contact_section .employeer_contact button img {
@@ -1797,4 +1802,26 @@ footer .copyRights p {
   margin: auto 0;
   font-size: 42px;
   font-weight: 700;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #001489;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+.loader.show {
+  opacity: 1;
+  visibility: visible;
 }/*# sourceMappingURL=main.css.map */

@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import { Accordion } from "react-bootstrap";
 import useGetHome from "../../hooks/useGetHome";
 
 export default function Faqs() {
-  const { data, isLoading } = useGetHome();
+  const { data } = useGetHome();
 
   return (
     <section className="faqs_section" id="faqs">
@@ -15,20 +14,16 @@ export default function Faqs() {
 
           <div className="col-lg-10 col-12 p-2">
             <Accordion defaultActiveKey="0">
-              {
-
-                
-data?.faq.map((faq, index) => (
-                  <Accordion.Item eventKey={index.toString()} key={index}>
-                    <Accordion.Header>
-                      <div className="num">{index + 1}</div> {faq.title}
-                    </Accordion.Header>
-                    <Accordion.Body>
-                      <p>{faq.text}</p>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                ))
-             }
+              {data?.faq.map((faq, index) => (
+                <Accordion.Item eventKey={index.toString()} key={index}>
+                  <Accordion.Header>
+                    <div className="num">{index + 1}</div> {faq.title}
+                  </Accordion.Header>
+                  <Accordion.Body>
+                    <p>{faq.text}</p>
+                  </Accordion.Body>
+                </Accordion.Item>
+              ))}
             </Accordion>
           </div>
         </div>

@@ -1,5 +1,4 @@
 export default function HowWeDoIT() {
-  
   return (
     <section className="how_we_do">
       <div className="container">

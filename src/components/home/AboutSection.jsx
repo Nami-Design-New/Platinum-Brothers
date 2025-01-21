@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
 import useGetHome from "../../hooks/useGetHome";
- 
+
 export default function AboutSection() {
-  const { data, isLoading } = useGetHome();
+  const { data } = useGetHome();
 
   return (
     <>
@@ -33,9 +32,7 @@ export default function AboutSection() {
             <div className="col-lg-6 col-12 p-2">
               <div className="content">
                 <h2>Who We Are?</h2>
-                <p>
-                  {data?.who_are_we}
-                </p>
+                <p>{data?.who_are_we}</p>
               </div>
             </div>
             <div className="col-lg-6 col-12 p-2">

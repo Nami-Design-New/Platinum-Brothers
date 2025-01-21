@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useGetHome from "../../hooks/useGetHome";
 
 export default function Features() {
-  const { data, isLoading } = useGetHome();
+  const { data } = useGetHome();
 
   return (
     <section className="features_section">
@@ -41,10 +40,7 @@ export default function Features() {
           </div>
           <div className="col-lg-6 col-12 p-2">
             <div className="about_img">
-              <img
-                src={data?.additional_service.image }
-                alt="about"
-              />
+              <img src={data?.additional_service.image} alt="about" />
             </div>
           </div>
         </div>

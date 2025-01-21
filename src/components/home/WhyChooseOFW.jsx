@@ -4,7 +4,7 @@ import useGetHome from "../../hooks/useGetHome";
 
 export default function WhyChooseOFW() {
   const [activeKey, setActiveKey] = useState("tab0");
-  const { data, isLoading } = useGetHome();
+  const { data } = useGetHome();
 
   return (
     <section className="why_choose_ofw">
@@ -14,7 +14,10 @@ export default function WhyChooseOFW() {
             <h3>WHY CHOOSE OFWS?</h3>
             <h2>Overseas Filipino Workers</h2>
           </div>
-          <Tab.Container activeKey={activeKey} onSelect={(key) => setActiveKey(key)}>
+          <Tab.Container
+            activeKey={activeKey}
+            onSelect={(key) => setActiveKey(key)}
+          >
             <div className="row mt-lg-5 mt-3 p-0">
               <div className="col-lg-4 p-2">
                 <Nav variant="pills" className="flex-column">

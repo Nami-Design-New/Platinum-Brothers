@@ -2,7 +2,7 @@ export default function PaginationNumbers({
   currentPage: page,
   lastPage: max,
   param,
-  setSearchParams
+  setSearchParams,
 }) {
   function handleSetParams(event, n) {
     event.preventDefault();

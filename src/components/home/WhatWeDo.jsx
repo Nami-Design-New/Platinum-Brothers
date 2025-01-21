@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
 import useGetHome from "../../hooks/useGetHome";
 
 export default function WhatWeDo() {
-  const { data, isLoading } = useGetHome();
+  const { data } = useGetHome();
 
   return (
     <section className="features_section">
@@ -10,7 +9,7 @@ export default function WhatWeDo() {
         <div className="row">
           <div className="col-lg-6 col-12 p-2">
             <img
-              src={data?.what_we_do.image} 
+              src={data?.what_we_do.image}
               alt="about"
               className="about_img"
             />
@@ -18,15 +17,13 @@ export default function WhatWeDo() {
           <div className="col-lg-6 col-12 p-2 ps-lg-5 ps-2">
             <div className="content">
               <h3>What We Do?</h3>
-              <p>{data?.what_we_do.text }</p> 
+              <p>{data?.what_we_do.text}</p>
               <ul className="mb-4">
-                {
-                  data?.what_we_do.services.map((service, index) => (
-                    <li key={index}>
-                      <i className="fa-regular fa-circle-check"></i> {service}
-                    </li>
-                  ))
-               }
+                {data?.what_we_do.services.map((service, index) => (
+                  <li key={index}>
+                    <i className="fa-regular fa-circle-check"></i> {service}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -40,7 +37,7 @@ export default function WhatWeDo() {
                   </li>
                 ))
               ) : (
-                <li>No positions available.</li> 
+                <li>No positions available.</li>
               )}
             </ul>
           </div>

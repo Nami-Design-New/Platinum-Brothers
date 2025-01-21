@@ -5,9 +5,7 @@ export default function PageHeader({ title, image }) {
       style={{ backgroundImage: `url("${image}")` }}
     >
       <div className="container d-flex h-100">
-        <h2>
-          {title}
-        </h2>
+        <h2>{title}</h2>
       </div>
     </section>
   );

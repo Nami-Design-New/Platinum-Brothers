@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
 import useGetEmployee from "../../hooks/useGetEmployeePage";
 
 export default function Why() {
-  const { data, isLoading } = useGetEmployee();
+  const { data } = useGetEmployee();
 
   return (
     <section className="whyus">

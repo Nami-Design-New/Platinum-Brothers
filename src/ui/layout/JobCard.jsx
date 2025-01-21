@@ -12,7 +12,7 @@ export default function JobCard({ job }) {
 
   const date = new Date(job?.valid_start);
   const day = date.getDate();
-  const month = date.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+  const month = date.toLocaleString("en-US", { month: "short" }).toUpperCase();
   const year = date.getFullYear();
 
   return (

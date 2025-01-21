@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -7,7 +6,7 @@ import "swiper/css/effect-fade";
 import useGetCities from "../../hooks/useGetCities";
 
 export default function HeroSection() {
-  const { data, isloading } = useGetCities();
+  const { data } = useGetCities();
 
   return (
     <section className="hero_section">

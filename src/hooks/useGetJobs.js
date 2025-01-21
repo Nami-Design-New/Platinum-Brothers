@@ -9,7 +9,7 @@ function useGetJobs({ pageSize = 10, currentPage = 1, filter, sort } = {}) {
         headers: {
           "X-Request-Page-Size": pageSize.toString(),
           "X-Request-Current-Page": currentPage.toString(),
-        }
+        },
       };
 
       if (filter) {
@@ -20,7 +20,10 @@ function useGetJobs({ pageSize = 10, currentPage = 1, filter, sort } = {}) {
         config.headers["X-Request-Sort"] = JSON.stringify(sort);
       }
 
-      const res = await axiosInstance.get("/public/job_posts/published", config);
+      const res = await axiosInstance.get(
+        "/public/job_posts/published",
+        config
+      );
       return res.data;
     },
     retry: false,

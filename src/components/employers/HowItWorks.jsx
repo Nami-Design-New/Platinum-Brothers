@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
 import useGetEmployee from "../../hooks/useGetEmployeePage";
 
 export default function HowItWorks() {
-  const { data, isLoading } = useGetEmployee();
-
+  const { data } = useGetEmployee();
 
   return (
     <section className="how_it_works">
@@ -29,9 +27,11 @@ export default function HowItWorks() {
           </div>
           <div className="col-12 p-2 mt-5">
             <div className="content gap-1">
-              {data?.first_section.text_2.split("\r\n\r\n").map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
+              {data?.first_section.text_2
+                .split("\r\n\r\n")
+                .map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
             </div>
           </div>
         </div>
