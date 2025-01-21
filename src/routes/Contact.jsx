@@ -269,11 +269,11 @@ export default function Contact() {
               <div className="col-lg-6 col-12 p-2">
                 <iframe
                   src={`https://www.google.com/maps?q=${office?.lat},${office?.lng}&hl=ar&z=14&output=embed`}
-                  width="600"
-                  height="450"
-                  style="border:0;"
-                  allowfullscreen=""
+                  width="100%"
+                  height="350"
+                  allowFullScreen=""
                   loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
               <div className="col-lg-6 col-12 p-2">
