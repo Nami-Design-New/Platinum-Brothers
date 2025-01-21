@@ -267,14 +267,14 @@ export default function Contact() {
           {data?.map((office, index) => (
             <div key={index} className="row">
               <div className="col-lg-6 col-12 p-2">
-                {/* <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.471903489129!2d120.98660252537064!3d14.572165277773141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca2bba85a83f%3A0xf7a922b187c3686d!2zMTY4MCBNYWJpbmkgU3QsIE1hbGF0ZSwgTWFuaWxhLCAxMDA0IE1ldHJvIE1hbmlsYSwg2KfZhNmB2YTYqNmK2YY!5e0!3m2!1sar!2seg!4v1732628075620!5m2!1sar!2seg"
-                width="100%"
-                height="320"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              /> */}
+                <iframe
+                  src={`https://www.google.com/maps?q=${office?.lat},${office?.lng}&hl=ar&z=14&output=embed`}
+                  width="600"
+                  height="450"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
               </div>
               <div className="col-lg-6 col-12 p-2">
                 <div className="content">
