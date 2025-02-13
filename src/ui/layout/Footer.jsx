@@ -64,8 +64,8 @@ export default function Footer() {
               <h5>CONTACT US</h5>
               <ul>
                 <li>
-                  <h6>Phone:</h6>
-                  <a href="tel:028-554-0408">028-554-0408 ( Manila )</a>
+                  <h6>Manila Head Office</h6>
+                  <a href="tel:+63-028-554-0408">+63-028-554-0408</a>
                 </li>
 
                 <li>

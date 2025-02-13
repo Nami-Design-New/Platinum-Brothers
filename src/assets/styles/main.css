@@ -499,6 +499,19 @@ body .hero_section .swiper-pagination-bullet.swiper-pagination-bullet-active {
 }
 body .why_choose_ofw {
   padding: 60px 0;
+  position: relative;
+}
+body .why_choose_ofw .sticky-nav {
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  background: white;
+  padding: 10px;
+}
+body .why_choose_ofw .scrollable-content {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 body .why_choose_ofw h3 {
   color: #7c878e;

@@ -27,7 +27,7 @@ export default function WhatWeDo() {
               </ul>
             </div>
           </div>
-          <div className="col-12 p-2 mt-5">
+          {/* <div className="col-12 p-2 mt-5">
             <h6>These positions include:</h6>
             <ul className="positions">
               {data?.what_we_do.positions?.length > 0 ? (
@@ -40,7 +40,7 @@ export default function WhatWeDo() {
                 <li>No positions available.</li>
               )}
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
